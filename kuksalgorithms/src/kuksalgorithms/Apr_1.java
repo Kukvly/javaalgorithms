@@ -9,9 +9,14 @@ package kuksalgorithms;
  * 
  * (2<=N, K<=100000)
  * (1<=Ai<=10^9)
+ * 
+ * 요약하자면 서로소인 각 원소들의 부분집합의 개수를 구하라는 것
  * */
 
 import java.util.Scanner;
+import java.util.Map;
+import java.util.List;
+import java.util.HashMap;
 
 public class Apr_1 {
 
@@ -23,12 +28,20 @@ public class Apr_1 {
 		int k = input.nextInt();
 		int num[] = new int[n];
 		
-		// TODO Auto-generated method stub
+		//Map <String, List> _kuksMap = new HashMap<String, List>();
+		
 		System.out.println("n: " + n);
 		System.out.println("k: " + k);
 		
 		for(int i=0; i<n; i++) {
 			num[i] = input.nextInt();
+			System.out.println("num: " + num[i]);
+		}
+		
+		int rtn[] = new int[n];
+		
+		for(int i=0; i<n; i++) {
+			
 			System.out.println("num: " + num[i]);
 		}
 		

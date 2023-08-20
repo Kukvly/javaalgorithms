@@ -12,6 +12,8 @@ import java.util.Scanner;
  * (M은 공백으로 구분되어져 있음 [-10000000 ~ 10000000])
  */
 
+// 시간 초과
+
 public class Dspr1 {
 
 	public static void main(String[] args) {
@@ -28,17 +30,22 @@ public class Dspr1 {
 		
 		int sep[] = new int[m];
 		
-		int temp[] = new int[m];
+		//int temp[] = new int[m];
 		
 		for (int i=0; i<m; i++) {
 			sep[i] = input.nextInt();
-			temp[i] = 0;
+		//	temp[i] = 0;
+		//	sep[i] = 0;
 			for(int j=0; j<n; j++) {
 				if(sep[i] == card[j]) {
-					temp[i] = 1;
+					//temp[i] = 1;
+					sep[i] =1;
+				}else {
+					sep[i] = 0;
 				}
 			}
-			System.out.print(temp[i] + " ");
+			//System.out.print(temp[i] + " ");
+			System.out.print(sep[i] + " ");
 		}
 	}
 

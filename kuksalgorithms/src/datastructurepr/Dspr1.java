@@ -22,7 +22,6 @@ public class Dspr1 {
 		
 		for (int i=0; i<n; i++) {
 			card[i] = input.nextInt();
-			System.out.println("card[" + i + "]: " + card[i]);
 		}
 		
 		int m = input.nextInt();
@@ -34,20 +33,13 @@ public class Dspr1 {
 		for (int i=0; i<m; i++) {
 			sep[i] = input.nextInt();
 			temp[i] = 0;
-			System.out.print(sep[i]+" ");
-			System.out.print(temp[i]+" ");		
+			for(int j=0; j<n; j++) {
+				if(sep[i] == card[j]) {
+					temp[i] = 1;
+				}
+			}
+			System.out.print(temp[i] + " ");
 		}
-		System.out.println("");
-		System.out.println("n: " + n);
-		
-	
-		
-		
-		
-//		for(i)
-		
-		
-		
 	}
 
 }

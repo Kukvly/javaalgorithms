@@ -29,12 +29,22 @@ public class Dspr1 {
 		
 		int sep[] = new int[m];
 		
+		int temp[] = new int[m];
+		
 		for (int i=0; i<m; i++) {
 			sep[i] = input.nextInt();
-			System.out.print(sep[i]);
+			temp[i] = 0;
+			System.out.print(sep[i]+" ");
+			System.out.print(temp[i]+" ");		
 		}
 		System.out.println("");
 		System.out.println("n: " + n);
+		
+	
+		
+		
+		
+//		for(i)
 		
 		
 		

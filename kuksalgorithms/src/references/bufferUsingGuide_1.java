@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 // BufferedReader & BufferedWriter
 
-public class buffer {
+public class bufferUsingGuide_1 {
 	public static void main(String[] args) throws IOException {
 		
 		// BufferedReader

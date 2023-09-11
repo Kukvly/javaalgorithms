@@ -32,24 +32,24 @@ public class base3_a {
 				} else if (n == 1) {
 					cnt1++;
 				} else {
-					fibonacci(n);
+//					fibonacci(n);
 				}
 
 			}
-			System.out.println(num[i][0] + num[i][1]);
+//			System.out.println(num[i][0] + num[i][1]);
 		}
 
 	}
 
-	public static int fibonacci(int n) {
-		int lst = [(1,0), (0,1)];
-		if (n == 0) {
-			return lst;
-		} else if (n == 1) {
-			return lst;
-		} else {
-			return fibonacci(n - 1) + fibonacci(n - 2);
-		}
-	}
+//	public static int fibonacci(int n) {
+//		int lst = [(1,0), (0,1)];
+//		if (n == 0) {
+//			return lst;
+//		} else if (n == 1) {
+//			return lst;
+//		} else {
+//			return fibonacci(n - 1) + fibonacci(n - 2);
+//		}
+//	}
 
 }

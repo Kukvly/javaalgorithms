@@ -16,15 +16,17 @@ public class base3_a {
 		int t = Integer.parseInt(s);
 
 		int num[][] = new int[t][2];
+		int cnt0 = 0;
+		int cnt1 = 0;
 		
-		for (int i = 0; i < t; i++) {
+		for (int n = 2; n < t; n++) {
 			
 			num[0][0] = 1;
-			num[1][0] = 0;
 			num[0][1] = 0;
+			num[1][0] = 0;
 			num[1][1] = 1;
-			
-			if (n <= 40 || n == 0) {
+
+			if (n <= 40) {
 				if (n == 0) {
 					cnt0++;
 				} else if (n == 1) {

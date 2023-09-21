@@ -9,14 +9,49 @@
  * 만약 길이가 100보다 크거나 그러한 수열이 없을 때는 -1을 출력한다.
  */
 
+
+/**
+ * 총합: n
+ * 길이: l
+ * 
+ * 숫자 갯수가 홀수일때
+ * l % (l/2) = 0
+ * 
+ * 
+ * 숫자 갯수가 짝수일때
+ * 가운데수 = (n/l)
+ * 
+ * 
+ */
+
+
 package basealgorithms;
+
+import java.util.Scanner;
 
 public class base7 {
 
-	int n=0;
-	int l=0;
 	
 	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		int n = input.nextInt();
+		int l = input.nextInt();
+
+		int sum=0;
+		
+		int nList[] = new int[n];
+		
+		if((l>=2 && l<=100)&& (n<=1000000000)) {
+			for(int i=0; i<100; i++) {
+				if
+			}
+		} 
+//		else if(l>100 || 값x) {
+//			sum = -1;
+//			System.out.println(sum);
+//		}
+		
 		
 	}
 

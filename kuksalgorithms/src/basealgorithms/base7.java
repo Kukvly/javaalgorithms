@@ -44,7 +44,7 @@ public class base7 {
 		
 		if((l>=2 && l<=100)&& (n<=1000000000)) {
 			for(int i=0; i<100; i++) {
-				if
+				//if
 			}
 		} 
 //		else if(l>100 || 값x) {

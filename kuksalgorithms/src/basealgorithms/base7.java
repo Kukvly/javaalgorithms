@@ -14,13 +14,16 @@
  * 총합: n
  * 길이: l
  * 
- * 숫자 갯수가 홀수일때
- * l % (l/2) = 0
  * 
  * 
- * 숫자 갯수가 짝수일때
- * 가운데수 = (n/l)
+ * 35 56789
  * 
+ * 
+ * 홀수갯수
+ * 18 5+6+7
+ * ([0]+[l-1])*(l/2) = n
+ * 
+ *
  * 
  */
 
@@ -31,6 +34,8 @@ import java.util.Scanner;
 
 public class base7 {
 
+	
+	// n= ([0]+[l-1])*(l/2)
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
@@ -43,9 +48,7 @@ public class base7 {
 		int nList[] = new int[n];
 		
 		if((l>=2 && l<=100)&& (n<=1000000000)) {
-			for(int i=0; i<100; i++) {
-				//if
-			}
+			
 		} 
 //		else if(l>100 || 값x) {
 //			sum = -1;

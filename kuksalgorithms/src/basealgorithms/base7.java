@@ -55,6 +55,15 @@
  * nList[2] = x+2
  * nList[3] = x+3
  * 
+ * double nTemp = n;
+ * double lTemp = l;
+ * 
+ * if ((n-x)%(l-1)==0){
+ * 연산
+ * }
+ *
+ * 
+ * 
  * (i+1 = l) -> 마지막 i + 1 = l (수열의 길이)
  * 
  * 
@@ -94,7 +103,7 @@ public class base7 {
 		double lTemp = l;
 		
 		int nList[] = new int[l];
-		if(n-nList[0]) {
+		if((n-nList[0])%(lTemp-1) == 0) {
 			nList[0] = (n+1)/l -1;
 			if((l>=2 && l<=100)&& (n<=1000000000)) {
 				for (int i=1; i<l; i++) {

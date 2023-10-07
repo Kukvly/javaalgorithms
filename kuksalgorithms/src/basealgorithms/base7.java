@@ -50,13 +50,25 @@
  *                    
  * case2.
  * 
+ * l=4
  * nList[0] = x
  * nList[1] = x+1
  * nList[2] = x+2
  * nList[3] = x+3
  * 
+ * nList[i] = x+i
+ * 
+ * <정답>
+ * n = l(x-1)
+ * n/l = x-1
+ * x = n/l + 1
+ * 
  * double nTemp = n;
  * double lTemp = l;
+ * 
+ * x + x+1 + x+2 + x+3 + ... + x+(l-1)
+ * l*x + sum(1~l)
+ * sum(1~l) = (l/2)
  * 
  * if ((n-x)%(l-1)==0){
  * 연산
@@ -102,27 +114,25 @@ public class base7 {
 		double nTemp = n;
 		double lTemp = l;
 		
-		int nList[] = new int[l];
-		if((n-nList[0])%(lTemp-1) == 0) {
-			nList[0] = (n+1)/l -1;
+		double nList[] = new double[l];
+		nList[0] = nTemp/lTemp -1;
+		System.out.print(nList[0]+ " ");		
+		if((nTemp+lTemp)%lTemp == 0) {
+			
 			if((l>=2 && l<=100)&& (n<=1000000000)) {
 				for (int i=1; i<l; i++) {
 					nList[i] = nList[0] + i;
-					System.out.print("1. " + nList[i] + " ");				
+					System.out.print(nList[i] + " ");				
 				}
 			}
-			System.out.println("");
 			
 		} else {
 			n = -1;
-			System.out.println(n);
 		}
 		
-		System.out.println("3. nList[0]: "+nList[0]);
 		
 		if(l>100) {
 			n = -1;
-			System.out.println("4: "+n);
 		}
 		
 		

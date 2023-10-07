@@ -47,12 +47,17 @@ public class Pr1 {
 		
 		Double x = nTemp%lTemp;
 		
+		double zz = (double)n + (double)l;
 		
 		if (x.getClass().getName()=="double") {
 			System.out.println("궁금해: " + x.getClass().getName());
 		}
 		
-		
+		if(x==1) {
+			System.out.println("yunx: " + x);
+		} else {
+			System.out.println("kukx: " + x);
+		}
 
 		
 		

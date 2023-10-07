@@ -57,6 +57,13 @@
  * 
  * (i+1 = l) -> 마지막 i + 1 = l (수열의 길이)
  * 
+ * 
+ * l*(x+1) - 1 = n
+ * (x+1) * l = n+1
+ * x+1 = (n+1)/l
+ * x = (n+1)/l -1
+ * 
+ * 
  * int isum = 0;
  * isum = isum + i;
  * n = nList[0]*(i+1) + isum
@@ -83,19 +90,33 @@ public class base7 {
 		int n = input.nextInt();
 		int l = input.nextInt();
 
-		int sum=0;
+		double nTemp = n;
+		double lTemp = l;
 		
 		int nList[] = new int[l];
-		
-		if((l>=2 && l<=100)&& (n<=1000000000)) {
-			for (int i=0; i<l; i++) {
-				nList[i] = 
+		if(n-nList[0]) {
+			nList[0] = (n+1)/l -1;
+			if((l>=2 && l<=100)&& (n<=1000000000)) {
+				for (int i=1; i<l; i++) {
+					nList[i] = nList[0] + i;
+					System.out.print("1. " + nList[i] + " ");				
+				}
 			}
-		} 
-//		else if(l>100 || 값x) {
-//			sum = -1;
-//			System.out.println(sum);
-//		}
+			System.out.println("");
+			
+		} else {
+			n = -1;
+			System.out.println(n);
+		}
+		
+		System.out.println("3. nList[0]: "+nList[0]);
+		
+		if(l>100) {
+			n = -1;
+			System.out.println("4: "+n);
+		}
+		
+		
 		
 		
 	}

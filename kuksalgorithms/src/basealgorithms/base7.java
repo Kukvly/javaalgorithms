@@ -58,6 +58,18 @@
  * 
  * nList[i] = x+i
  * 
+ * l=5
+ * nList[0] = x
+ * nList[1] = x+1
+ * nList[2] = x+2
+ * nList[3] = x+3
+ * nList[4] = x+4
+ * 
+ * 5(x-1)
+ * x-l +l
+ * x+i
+ * 
+ * 
  * <정답>
  * n = l(x-1)
  * n/l = x-1

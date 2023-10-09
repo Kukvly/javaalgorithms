@@ -9,7 +9,6 @@
  * 만약 길이가 100보다 크거나 그러한 수열이 없을 때는 -1을 출력한다.
  */
 
-
 /**
  * 총합: n
  * 길이: l
@@ -46,7 +45,7 @@
  * 중앙 인덱스: [(l-1)/2]
  * 
  * 
- * 
+ *
  *                    
  * case2.
  * 
@@ -69,6 +68,9 @@
  * x-l +l
  * x+i
  * 
+ * (nTemp/lTemp +1) = x
+ * (nTemp/lTemp +1) == nList[0]
+ * (nTemp/lTemp) = x-1
  * 
  * <정답>
  * n = l(x-1)
@@ -103,10 +105,22 @@
  * 
  * n = x+y+z
  * 
+ *
+ * case3.
+ * n = (x+1) + (x+2) + ... (x+l)
+ * 
+ * n = lx + ((l+1)*l)/2
+ * lx = n - (l*(l+1))/2
+ * if((n - (l*(l+1))/2)%l == 0)
+ * {
+ * 	연산실행
+ * }
+ * else{
+ * 	System.out.println("-1");
+ * }
  * 
  * 
  */
-
 
 package basealgorithms;
 
@@ -114,42 +128,32 @@ import java.util.Scanner;
 
 public class base7 {
 
-	
-	// n= ([0]+[l-1])*(l/2)
-	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		
+
 		int n = input.nextInt();
 		int l = input.nextInt();
 
-		double nTemp = n;
-		double lTemp = l;
-		
-		double nList[] = new double[l];
-		nList[0] = nTemp/lTemp -1;
-		System.out.print(nList[0]+ " ");		
-		if((nTemp+lTemp)%lTemp == 0) {
-			
-			if((l>=2 && l<=100)&& (n<=1000000000)) {
-				for (int i=1; i<l; i++) {
-					nList[i] = nList[0] + i;
-					System.out.print(nList[i] + " ");				
+		for (int i = l; i < 101; i++) {
+			int x = n - (i * (i + 1) / 2);
+
+			if (x % i == 0) {
+				x = (x / i);
+
+				if (x >= -1) {
+					for (int j = 1; j < (i+1); j++) {
+						System.out.print(x + j + " ");
+					}
+					break;
 				}
+
+			} else {
+				System.out.print("-1");
+				break;
 			}
-			
-		} else {
-			n = -1;
+
 		}
-		
-		
-		if(l>100) {
-			n = -1;
-		}
-		
-		
-		
-		
+
 	}
 
 }

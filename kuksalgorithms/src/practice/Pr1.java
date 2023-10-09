@@ -64,6 +64,12 @@ public class Pr1 {
 		System.out.println("int->double: " + nTemp%lTemp);
 		System.out.println("int->double: " + nTemp/lTemp);
 		
+		double zzzz = 44;
+		double ggg = 14;
+		
+		System.out.println("rtn/: " + zzzz/ggg);
+		System.out.println("rtn%: " + zzzz%ggg);
+		
 	}
 
 }

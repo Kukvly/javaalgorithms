@@ -128,7 +128,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class base7 {
+public class base7_b {
 
 	public static void main(String[] args) throws IOException {
 
@@ -137,24 +137,21 @@ public class base7 {
 		int n = Integer.parseInt(input[0]);
 		int l = Integer.parseInt(input[1]);
 
-		for (int i = l; i < 101; i++) {
-			double x = n - (i * (i + 1) / 2);
-
-			if (x % i == 0) {
-				x = (int)(x / i);
-
-				if (x >= -1) {
-					for (int j = 1; j < (i + 1); j++) {
-						System.out.print((int)(x + j) + " ");
+		for (int length = l; length < 101; length++) {
+			// Check if n can be represented as an arithmetic sequence of length 'length'
+			if ((2 * n) % length == 0 && (2 * n) / length - length + 1 > 0) {
+				double start = n - (length * (length + 1) / 2);
+				
+				if (start % 2 == 0) {
+					start = (int)(start / length);
+					for (int i = 0; i < length; i++) {
+						System.out.print(start + i + " ");
 					}
-					break;
+					System.out.println();
+					return;
 				}
-
-			} else {
-				System.out.print("-1");
-				break;
 			}
 		}
-		
+		System.out.println(-1);
 	}
 }

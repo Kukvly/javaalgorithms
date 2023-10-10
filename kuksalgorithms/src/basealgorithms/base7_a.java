@@ -11,15 +11,19 @@
 
 package basealgorithms;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class base7_a {
 
-	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int n = scan.nextInt();
-		int l = scan.nextInt();
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+		String [] input = buffer.readLine().split(" ");
+		int n = Integer.parseInt(input[0]);
+		int l = Integer.parseInt(input[1]);
 		
 		// l보다는 크고 100보다는 작은 연속합의 최소횟수 체크
 		int min = 100;
@@ -35,7 +39,6 @@ public class base7_a {
 		
 		// 연속합에 사용되는 숫자가 저장될 변수
 		int[] arr = new int[n];
-		
 		for (int i = 1; i < n / 2; i++) {
 
 			loop: for (int j = i; j < n / 2; j++) {

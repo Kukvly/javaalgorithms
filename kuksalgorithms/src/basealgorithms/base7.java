@@ -124,36 +124,41 @@
 
 package basealgorithms;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class base7 {
 
-	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
+	public static void main(String[] args) throws IOException{
 
-		int n = input.nextInt();
-		int l = input.nextInt();
+		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+		String [] input = buffer.readLine().split(" ");
+		int n = Integer.parseInt(input[0]);
+		int l = Integer.parseInt(input[1]);
 
-		for (int i = l; i < 101; i++) {
-			int x = n - (i * (i + 1) / 2);
+		
+		
+			for (int i = l; i < 101; i++) {
+				int x = n - (i * (i + 1) / 2);
+				
+				if (x % i == 0) {
+					x = (x / i);
 
-			if (x % i == 0) {
-				x = (x / i);
-
-				if (x >= -1) {
-					for (int j = 1; j < (i+1); j++) {
-						System.out.print(x + j + " ");
+					if (x >= -1) {
+						for (int j = 1; j < (i+1); j++) {
+							System.out.print(x + j + " ");
+						}
+						break;
 					}
-					break;
-				}
 
-			} else {
-				System.out.print("-1");
-				break;
+				} 
 			}
+//			
+//		else {
+//				System.out.print("-1");				
+//			}
 
-		}
 
 	}
-
 }

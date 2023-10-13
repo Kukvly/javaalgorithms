@@ -128,33 +128,33 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class base7 {
+public class base7_c {
+
 	public static void main(String[] args) throws IOException {
+
 		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 		String[] input = buffer.readLine().split(" ");
 		int n = Integer.parseInt(input[0]);
 		int l = Integer.parseInt(input[1]);
 
-		for (int length = l; length <= 100; length++) {
-			// 등차수열의 합 공식을 이용하여 연속된 수열의 합 계산
-			int sum = (length * (length - 1)) / 2;
+		for (int i = l; i < 101; i++) {
+			double x = n - (i * (i + 1) / 2);
 
-			// 수열의 첫 항 구하기
-			int first = (n - sum) / length;
+			if (x % i == 0) {
+				x = (int)(x / i);
 
-			// 수열의 첫 항이 음수거나 수열의 합이 N과 같은 경우
-			if (first < 0)
-				break;
-
-			// 수열의 합이 N과 같으면 출력
-			if (n == sum + (length * first)) {
-				for (int i = 0; i < length; i++) {
-					System.out.print((first + i) + " ");
+				if (x >= -1) {
+					for (int j = 1; j < (i + 1); j++) {
+						System.out.print((int)(x + j) + " ");
+					}
+					break;
 				}
-				return;
+
+			} else {
+				System.out.print("-1");
+				break;
 			}
 		}
-
-		System.out.println(-1); // 조건을 만족하는 수열을 찾을 수 없을 경우 -1 출력
+		
 	}
 }

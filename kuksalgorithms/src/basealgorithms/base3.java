@@ -1,5 +1,12 @@
 package basealgorithms;
 
+/**
+ * <피보나치 함수 규칙>
+ * fibonacci(n) = fibonacci(n-2) + fibonacci(n-1)
+ * Cnt0: 1 0 1 1 2 3 5 
+ * Cnt1; 0 1 1 2 3 5 8
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

@@ -5,6 +5,11 @@ package basealgorithms;
  * fibonacci(n) = fibonacci(n-2) + fibonacci(n-1)
  * Cnt0: 1 0 1 1 2 3 5 
  * Cnt1; 0 1 1 2 3 5 8
+ * 
+ * 가진 숫자 개수
+ * 가진 숫자 목록
+ * 숫자 더미 개수
+ * 숫자 더미 목록
  */
 
 import java.io.BufferedReader;
@@ -18,15 +23,23 @@ public class base3 {
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String s = br.readLine();
+		String card = br.readLine();
+		int cardArr[] = new int[Integer.parseInt(card)];
+		
+		String d = br.readLine();
+		StringTokenizer st1 = new StringTokenizer(d, " ");
 
-		int t = Integer.parseInt(s);
-		int arr[] = new int[t];
-
-		for (int i = 0; i < t; i++) {
+		// for 문 index 별로 하나씩 넣을지
+		// 토큰으로 쭉 받아서 구분지어 한방에 다 넣어줄지 고민할 것
+		
+		String chknum = br.readLine();
+		
+		StringTokenizer st2 = new StringTokenizer(chknum, " ");
+		
+		for (int i = 0; i < num; i++) {
 			int cnt0 = 0;
 			int cnt1 = 0;
-			String d = br.readLine();
+			System.out.println("d: " + d);
 			arr[i] = Integer.parseInt(d);
 
 			int n = arr[i]; // 3

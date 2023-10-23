@@ -18,54 +18,28 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import java.util.Scanner;
+
 public class base3 {
-
-	public static void main(String[] args) throws IOException {
-
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String card = br.readLine();
-		int cardArr[] = new int[Integer.parseInt(card)];
-		
-		String d = br.readLine();
-		StringTokenizer st1 = new StringTokenizer(d, " ");
-
-		// for 문 index 별로 하나씩 넣을지
-		// 토큰으로 쭉 받아서 구분지어 한방에 다 넣어줄지 고민할 것
-		
-		String chknum = br.readLine();
-		
-		StringTokenizer st2 = new StringTokenizer(chknum, " ");
-		
-		for (int i = 0; i < num; i++) {
-			int cnt0 = 0;
-			int cnt1 = 0;
-			System.out.println("d: " + d);
-			arr[i] = Integer.parseInt(d);
-
-			int n = arr[i]; // 3
-			System.out.println("n: " + arr[i]);
-			if (n <= 40 || n == 0) {
-				if (n == 0) {
-					cnt0++;
-				} else if (n == 1) {
-					cnt1++;
-				} else {
-					fibonacci(n);
-				}
-
-			}
-			System.out.println(cnt0 + " " + cnt1);
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int n = input.nextInt();
+		int card[] = new int[n];
+		for (int i=0; i<n; i++) {
+			card[i] = input.nextInt();
 		}
-
-	}
-
-	public static int fibonacci(int n) {
-		if (n == 0) {
-			return 0;
-		} else if (n == 1) {
-			return 1;
-		} else {
-			return fibonacci(n - 1) + fibonacci(n - 2);
+		int m = input.nextInt();
+		int sep[] = new int[m];	
+		for (int i=0; i<m; i++) {
+			sep[i] = input.nextInt();
+			for(int j=0; j<n; j++) {
+				if(sep[i] == card[j]) {
+					sep[i] =1;
+				}else {
+					sep[i] = 0;
+				}
+			}
+			System.out.print(sep[i] + " ");
 		}
 	}
 

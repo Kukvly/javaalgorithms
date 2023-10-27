@@ -28,27 +28,28 @@ public class base3 {
 		for (int i = 0; i < n; i++) {
 			card[i] = input.nextInt();
 		}
-		
-		for(int x=0; x<card.length ;x++) {
-			System.out.print("card["+x+"]: " + card[x] + ", ");
+
+		for (int x = 0; x < card.length; x++) {
+			System.out.print("card[" + x + "]: " + card[x] + ", ");
 		}
 		System.out.println("");
-		
+
 		int m = input.nextInt();
 		int sep[] = new int[m];
+		int tmp[] = new int[m];
 		for (int i = 0; i < m; i++) {
 			sep[i] = input.nextInt();
-			System.out.println("sep["+i+"]: " + sep[i] + ", ");	
-			for (int j = 0; j < n; j++) {
-				if (sep[i] == card[j]) {
-					sep[i] = 1;
-					System.out.println("안타나?");
+			tmp[i] = 0;
+		}
+		for (int x = 0; x < sep.length; x++) {
+			for (int j = 0; j < card.length; j++) {
+				if (sep[x] == card[j]) {
+					tmp[x] = 1;
 				} else {
-					sep[i] = 0;
+					tmp[x] = 0;
 				}
 			}
-			System.out.println("");	
-			System.out.print(sep[i] + " ");
+			System.out.print(tmp[x] + " ");
 		}
 	}
 

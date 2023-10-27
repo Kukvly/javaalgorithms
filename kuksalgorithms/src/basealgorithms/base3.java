@@ -25,20 +25,29 @@ public class base3 {
 		Scanner input = new Scanner(System.in);
 		int n = input.nextInt();
 		int card[] = new int[n];
-		for (int i=0; i<n; i++) {
+		for (int i = 0; i < n; i++) {
 			card[i] = input.nextInt();
 		}
+		
+		for(int x=0; x<card.length ;x++) {
+			System.out.print("card["+x+"]: " + card[x] + ", ");
+		}
+		System.out.println("");
+		
 		int m = input.nextInt();
-		int sep[] = new int[m];	
-		for (int i=0; i<m; i++) {
+		int sep[] = new int[m];
+		for (int i = 0; i < m; i++) {
 			sep[i] = input.nextInt();
-			for(int j=0; j<n; j++) {
-				if(sep[i] == card[j]) {
-					sep[i] =1;
-				}else {
+			System.out.println("sep["+i+"]: " + sep[i] + ", ");	
+			for (int j = 0; j < n; j++) {
+				if (sep[i] == card[j]) {
+					sep[i] = 1;
+					System.out.println("안타나?");
+				} else {
 					sep[i] = 0;
 				}
 			}
+			System.out.println("");	
 			System.out.print(sep[i] + " ");
 		}
 	}

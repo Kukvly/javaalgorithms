@@ -18,10 +18,12 @@ public class base3 {
 			sep[i] = input.nextInt();
 			tmp[i] = 0;
 		
-			for(int j = 0; j < card.length; j++)
-			if(sep[i] == card[j]) {
-				tmp[i] = 1;
+			for(int j = 0; j < card.length; j++) {
+				if(sep[i] == card[j]) {
+					tmp[i] = 1;
+				}
 			}
+			
 			System.out.print(tmp[i] + " ");
 		}
 	}

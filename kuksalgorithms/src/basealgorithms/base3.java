@@ -1,23 +1,5 @@
 package basealgorithms;
 
-/**
- * <피보나치 함수 규칙>
- * fibonacci(n) = fibonacci(n-2) + fibonacci(n-1)
- * Cnt0: 1 0 1 1 2 3 5 
- * Cnt1; 0 1 1 2 3 5 8
- * 
- * 가진 숫자 개수
- * 가진 숫자 목록
- * 숫자 더미 개수
- * 숫자 더미 목록
- */
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
-import java.util.StringTokenizer;
-
 import java.util.Scanner;
 
 public class base3 {
@@ -29,28 +11,18 @@ public class base3 {
 			card[i] = input.nextInt();
 		}
 
-		for (int x = 0; x < card.length; x++) {
-			System.out.print("card[" + x + "]: " + card[x] + ", ");
-		}
-		System.out.println("");
-
 		int m = input.nextInt();
 		int sep[] = new int[m];
 		int tmp[] = new int[m];
 		for (int i = 0; i < m; i++) {
 			sep[i] = input.nextInt();
 			tmp[i] = 0;
-		}
-		for (int x = 0; x < sep.length; x++) {
-			for (int j = 0; j < card.length; j++) {
-				if (sep[x] == card[j]) {
-					tmp[x] = 1;
-				} else {
-					tmp[x] = 0;
-				}
+		
+			for(int j = 0; j < card.length; j++)
+			if(sep[i] == card[j]) {
+				tmp[i] = 1;
 			}
-			System.out.print(tmp[x] + " ");
+			System.out.print(tmp[i] + " ");
 		}
 	}
-
 }

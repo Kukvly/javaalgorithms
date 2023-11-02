@@ -14,6 +14,16 @@ package basealgorithms;
  * 
  * 아름다운 삼각형의 개수는?
  * 
+ * [input]
+ * 첫째 줄에 N, M이 주어짐
+ * 둘째 줄부터 N개의 줄에 직사각형 내부 모양이 주어진다.
+ * R,G,B: 색깔
+ * N<50 , M <50 [N, M은 자연수]
+ * 
+ * ex. 3 8
+ * RRRRRRRR
+ * GGGGBBBB
+ * RRRRRRRR
  */
 
 public class base9 {

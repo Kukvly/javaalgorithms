@@ -15,13 +15,33 @@
  * 1 <= n <= 50
  * 파일명: 알파벳 (소문자), (.)
  * 해당 디렉토리에는 검색 결과에 나온 파일만 있다고 가정하고, 파일 이름의 길이는 모두 같다고 가정
+ * 
+ * [input]
+ * ex. 3			-> 파일 이름의 개수 [첫째 줄에 패턴을 출력하면 된다.]
+ * config.sys
+ * config.inf
+ * configures
+ * 
+ * -> config????
+ * 
  */
 
 package basealgorithms;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class base8 {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException{
+		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+		String [] input = buffer.readLine().split(" ");
+		
+		// 파일 이름의 개수
+		int n = Integer.parseInt(input[0]);
+		
+		//String a = Integer.parseInt(input[1]);
 		
 	}
 }

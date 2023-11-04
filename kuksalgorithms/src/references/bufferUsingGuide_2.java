@@ -10,6 +10,13 @@ import java.util.StringTokenizer;
  * @author kukvly
  * 입력받은 수 N개의 합 출력
  * InputExample: 1 2 3 4 5 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 
 public class bufferUsingGuide_2 {

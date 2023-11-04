@@ -3,6 +3,7 @@ package basealgorithms;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
@@ -15,21 +16,16 @@ import java.util.StringTokenizer;
  *         앞서는 것을 출력한다.
  * 
  *         [Input] 첫째 줄에 배열 A의 크기 N이 주어진다. 둘째 줄에는 배열 A의 원소가 0번부터 차례대로 주어진다. N은
- *         50보다 작거나 같은 자연수이고, 배열의 원소는 1,000보다 작거나 같은 자연수이다. 
- * 		   3
- *         2 3 1
+ *         50보다 작거나 같은 자연수이고, 배열의 원소는 1,000보다 작거나 같은 자연수이다. 3 2 3 1
  * 
- *         [Output] 첫째 줄에 비내림차순으로 만드는 수열 P를 출력한다. 
- *         1 2 0
+ *         [Output] 첫째 줄에 비내림차순으로 만드는 수열 P를 출력한다. 1 2 0
  * 
  *         수열: P 배열: A -> A.length = N
  * 
  *         P를 A에 적용시 배열: B -> B.length = N
  * 
- *         적용방법: B[P[i]] = A[i] P = [2 1 3 1] P[0]=2 P[1]=1 P[2]=3 P[3]=1
- * 			2 1 3 1 1
- * 			2 
- *         1. 내림차순정렬 P[1] P[3] P[0] P[3]
+ *         적용방법: B[P[i]] = A[i] P = [2 1 3 1] P[0]=2 P[1]=1 P[2]=3 P[3]=1 2 1 3
+ *         1 1 2 1. 내림차순정렬 P[1] P[3] P[0] P[3]
  * 
  * 
  *         2. 중복값 체
@@ -52,29 +48,28 @@ public class base10 {
 
 		int[] p = new int[n];
 		int[] tmp = new int[n];
-		
+
 		for (int i = 0; i < n; i++) {
 			p[i] = Integer.parseInt(st.nextToken());
 			tmp[i] = p[i];
-			System.out.println("p["+i+"]: " + p[i]);
+			System.out.print("p[" + i + "]: " + p[i] + " ");	// 2 1 3 1
+			System.out.println();
 		}
-/*		
-		for(int i=0; i<p.length; i++){
-			for (int j=0; j<p.length; j++){
-				if (p[i] == p[j]) {
-					for(int k=1; k<j; k++) {
-						tmp[j] = p[i] +k;
-					}
-				}
-				
-				else if(p[i]==(p[j])) {
-					tmp[i] = p[j] - 1;
-				}
-			}
-			System.out.println("tmp["+i+"]: " + tmp[i]);
+
+		Arrays.sort(p);
+		for (int i=0; i<p.length; i++) {
+			tmp[i] = p[i];
+			System.out.print(tmp[i] + " ");
 		}
-*/
-		
+
+		/*
+		 * for(int i=0; i<p.length; i++){ for (int j=0; j<p.length; j++){ if (p[i] ==
+		 * p[j]) { for(int k=1; k<j; k++) { tmp[j] = p[i] +k; } }
+		 * 
+		 * else if(p[i]==(p[j])) { tmp[i] = p[j] - 1; } }
+		 * System.out.println("tmp["+i+"]: " + tmp[i]); }
+		 */
+
 //		for(int i=0; i<p.length; i++){
 //			for (int j=0; j<p.length; j++{
 //				if() {

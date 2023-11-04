@@ -28,12 +28,18 @@ import java.util.StringTokenizer;
  *         1 1 2 1. 내림차순정렬 P[1] P[3] P[0] P[3]
  * 
  * 
- *         2. 중복값 체
- * 
- * 
- * 
- * 
- * 
+ *        [Input]
+ * 		   8
+ * 		   4 1 6 1 3 6 1 4
+ *        
+ *           입력값: 4 1 6 1 3 6 1 4
+ *        	 정렬값: 1 1 1 3 4 4 6 6
+ *       정렬후 배열: p[1] p[3] p[6] p[4] p[0] p[7] p[2] p[5]
+ *     정렬후 인덱스:  1 3 6 4 0 7 2 5
+ *     이 인덱스를 원래의 입력값이 있던대로 돌려놔야함
+ *        
+ *        [Output]
+ *         4 0 6 1 3 7 2 5
  */
 
 public class base10 {
@@ -48,23 +54,40 @@ public class base10 {
 
 		int[] p = new int[n];
 		int[] tmp = new int[n];
-
+//		int[] idx = new int[n];
 		for (int i = 0; i < n; i++) {
 			p[i] = Integer.parseInt(st.nextToken());
 			tmp[i] = p[i];
 			System.out.print("p[" + i + "]: " + p[i] + " ");	// 2 1 3 1
 			System.out.println();
 		}
-
-		Arrays.sort(p);
+		
+		// Arrays.sort(p);
+		
+// 이 코드에서 배열 p를 sort 함수를 이용하여 정렬하기 전으로 다시 돌리려면 어떻게 코드를 짜야할까
+		
 		for (int i=0; i<p.length; i++) {
 			tmp[i] = p[i];
 			System.out.print(tmp[i] + " ");
 		}
+		
+		System.out.println();
+		System.out.println();
 
+		for(int i=0; i<p.length; i++) {
+			for (int j=0; j<p.length; j++) {
+				if (p[i] == p[j]) {
+					tmp[i] = p[j] + 1;
+				}
+			}
+			System.out.print(tmp[i] + " ");
+			
+		}
+		
 		/*
-		 * for(int i=0; i<p.length; i++){ for (int j=0; j<p.length; j++){ if (p[i] ==
-		 * p[j]) { for(int k=1; k<j; k++) { tmp[j] = p[i] +k; } }
+		 * for(int i=0; i<p.length; i++)
+		 * { for (int j=0; j<p.length; j++)
+		 * { if (p[i] ==p[j]) { for(int k=1; k<j; k++) { tmp[j] = p[i] +k; } }
 		 * 
 		 * else if(p[i]==(p[j])) { tmp[i] = p[j] - 1; } }
 		 * System.out.println("tmp["+i+"]: " + tmp[i]); }

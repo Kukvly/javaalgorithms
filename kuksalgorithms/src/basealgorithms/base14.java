@@ -66,7 +66,8 @@ public class base14 {
 			strArr[i] = bf.readLine();
 		}
 		
-		for(int i=n; i<m+n; i++) {
+		for(int i=n; i<strArr.length; i++) {
+			int flag = 0;
 			strArr[i] = bf.readLine();
 			for(int j=0; j<n; j++) {
 				if(strArr[j].equals(strArr[i])) {
@@ -74,6 +75,8 @@ public class base14 {
 				} else continue;
 			}
 		}
+		
+		// 중복 제거한 배열로 후작업을 해주는게 어떨까
 		
 		System.out.println(cnt);
 		

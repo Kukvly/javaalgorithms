@@ -3,6 +3,7 @@ package basealgorithms;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -56,27 +57,32 @@ public class base14 {
 		int m = Integer.parseInt(numbers[1]);
 		int cnt = 0;
 		
-		String strArr[] = new String[n+m];
+		String nArr[] = new String[n];
+		String mArr[] = new String[m];
 		
 		
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));		
 		
 		
 		for(int i=0; i<n; i++) {
-			strArr[i] = bf.readLine();
+			nArr[i] = bf.readLine();
 		}
 		
-		for(int i=n; i<strArr.length; i++) {
-			int flag = 0;
-			strArr[i] = bf.readLine();
-			for(int j=0; j<n; j++) {
-				if(strArr[j].equals(strArr[i])) {
+		for(int i=0; i<m; i++) {
+			mArr[i] = bf.readLine();
+		}
+		
+		// 중복 제거한 배열로 후작업을 해주는게 어떨까
+		String[] rmvDupStrArr = Arrays.stream(mArr).distinct().toArray(String[]::new);
+
+		for(int i=0; i<n; i++) {
+			for(int j=0; j<rmvDupStrArr.length; j++) {
+				if(nArr[i].equals(rmvDupStrArr[j])) {
 					cnt++;
 				} else continue;
 			}
 		}
 		
-		// 중복 제거한 배열로 후작업을 해주는게 어떨까
 		
 		System.out.println(cnt);
 		

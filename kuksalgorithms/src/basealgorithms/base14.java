@@ -1,5 +1,10 @@
 package basealgorithms;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
 /*
  * 총 N개의 문자열로 이루어진 집합 S
  * 입력으로 주어지는 M개의 문자열 중에서 집합 S에 포함되어 있는 것이 총 몇 개인지 구하는 프로그램 작성
@@ -40,12 +45,38 @@ package basealgorithms;
  * 
  * */
 
-
 public class base14 {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void main(String[] args) throws IOException {
+		Scanner scan = new Scanner(System.in);
+		String str = scan.nextLine();
+		String[] numbers = str.split(" ");
+		
+		int n = Integer.parseInt(numbers[0]);
+		int m = Integer.parseInt(numbers[1]);
+		int cnt = 0;
+		
+		String strArr[] = new String[n+m];
+		
+		
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));		
+		
+		
+		for(int i=0; i<n; i++) {
+			strArr[i] = bf.readLine();
+		}
+		
+		for(int i=n; i<m+n; i++) {
+			strArr[i] = bf.readLine();
+			for(int j=0; j<n; j++) {
+				if(strArr[j].equals(strArr[i])) {
+					cnt++;
+				} else continue;
+			}
+		}
+		
+		System.out.println(cnt);
+		
 	}
 
 }

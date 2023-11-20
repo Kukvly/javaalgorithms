@@ -10,7 +10,8 @@ public class StringBuilder_sc {
 		StringBuilder sb = new StringBuilder();
 		for (int i=0; i<=a; i++) {
 			sb.append(i+"\n");
-			System.out.println(i);
+			System.out.println("i"+i);
+			System.out.println("sb"+sb);
 		}
 	}
 

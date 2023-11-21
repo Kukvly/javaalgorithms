@@ -3,7 +3,9 @@ package basealgorithms;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class base16 {
@@ -33,6 +35,19 @@ public class base16 {
 		
 		System.out.println(arr[0][0]);
 		System.out.println(arr[0][3]);
+		
+		System.out.println("---------------------------------------------------");
+		
+		List<Object> kuksList = new ArrayList<>();
+		kuksList.add("ff");
+		kuksList.add("qq");
+
+		System.out.println(kuksList.contains(arr[0][4]));
+		
+		
+		for(Object element: kuksList) {
+			System.out.println("element: "+ element);
+		}
 		
 	}
 }

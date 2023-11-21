@@ -36,73 +36,51 @@ public class base15_a {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-		 // 입력으로 문자열 집합의 크기 N과 비교할 문자열의 개수 M을 받음
-        String[] input = bf.readLine().split(" ");
-        int n = Integer.parseInt(input[0]);
-        HashSet<String> hashSet = new HashSet<>();
-        List<Object> kuksList = new ArrayList<>();
-        
-        String name [] = new String [n];
-        String state [] = new String [n];
-        String temp [] = new String[2];
-        String cop [] = new String [n];
-        
-        String restAll[] = new String[2*n];
-        
-        for(int i=0; i<n; i++) {
-        	restAll[i]=bf.readLine();
-        	temp = restAll[0].split(" ");
-        	name[i] = temp[0];
-        	state[i] = temp[1];
-//        	if(state[i].equals("enter") && !hashSet.contains(name[i])) {
-//        		hashSet.add(name[i]);
-//        	}
-        	if(state[i].equals("enter") && !kuksList.contains(name[i])) {
-        		kuksList.add(name[i]);
-        	}
-        	
-        }
-        System.out.println();
+		// 입력으로 문자열 집합의 크기 N과 비교할 문자열의 개수 M을 받음
+		String[] input = bf.readLine().split(" ");
+		int n = Integer.parseInt(input[0]);
+		HashSet<String> hashSet = new HashSet<>();
+		List<Object> kuksList = new ArrayList<>();
 
-        System.out.println("---------------------------");
-        System.out.println(restAll.toString().contains(name[0] +" enter"));
-        System.out.println(restAll.toString().contains(name[0] +" leave"));
-        System.out.println("---------------------------");
- 
-        
-        int restCnt = 0;
-        
-        System.out.println("===========================");
-        
-        // 문자열 집합에 문자열들을 추가
-        for (int i = 0; i < n; i++) {
-        	System.out.println(restAll[i]);
-        }
-        System.out.println("===========================");
-        
-        for(int i=0; i<n; i++) {
-        	if(state[i].equals("enter")) {
-            	
-            }
-        }
-        
-        
-        
-        //String s = bf.readLine();
-        
-        /*
-         name 배열만들고 !(name[i] +"enter" && name[i] + "leave") 이때 마다 println(name[i])을 하게끔 할 것 
-         */
-        
-//        for (int i=0; i<n; i++) {
-//        	if(nameSet.contains(name[i] + " enter") && nameSet.contains(name[i] + " leave")) {
-//            	continue;
-//            } else if(nameSet.contains(name[i] + " enter") && !(nameSet.contains(name[i] + " leave"))) {
-//            	
-//            }
-//        }
-        
-        
+		String name[] = new String[n];
+		String state[] = new String[n];
+		String temp[] = new String[2];
+		String cop[] = new String[n];
+
+		String restAll[] = new String[2 * n];
+
+		for (int i = 0; i < n; i++) {
+			restAll[i] = bf.readLine();
+			temp = restAll[i].split(" ");
+			name[i] = temp[0];
+			state[i] = temp[1];
+
+//			System.out.println("##############"+i+"##############");
+//			System.out.println("state["+i+"]: "+state[i]);
+//			System.out.println("name["+i+"]: "+name[i]);
+//			System.out.println("#################################");
+			System.out.println((restAll[i]));
+			System.out.println((name[i] + " " +state[i] == restAll[i]));
+			if ((name[i] + " enter" == restAll[i]) && !kuksList.contains(name[i])) {
+				kuksList.add(name[i]);
+			} 
+//			else if ((name[i] + " leave" == restAll[i]) && kuksList.contains(name[i])) {
+//				kuksList.remove(name[i]);
+//			}
+		
+		}
+		for(Object element : kuksList) {
+			System.out.println("----------------------------");
+			System.out.println("element: " + element);
+			System.out.println("----------------------------");
+		}
+
+
+		/*
+		 * name 배열만들고 !(name[i] +"enter" && name[i] + "leave") 이때 마다 println(name[i])을
+		 * 하게끔 할 것
+		 */
+
 	}
 
 }

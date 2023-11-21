@@ -28,29 +28,39 @@ package basealgorithms;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
-public class base15 {
+public class base15_a {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 		 // 입력으로 문자열 집합의 크기 N과 비교할 문자열의 개수 M을 받음
         String[] input = bf.readLine().split(" ");
         int n = Integer.parseInt(input[0]);
-        
+        HashSet<String> hashSet = new HashSet<>();
+        List<Object> kuksList = new ArrayList<>();
         
         String name [] = new String [n];
         String state [] = new String [n];
         String temp [] = new String[2];
+        String cop [] = new String [n];
         
         String restAll[] = new String[2*n];
         
         for(int i=0; i<n; i++) {
         	restAll[i]=bf.readLine();
-        	System.out.println("restAll["+i+"]: " + restAll[i]);
         	temp = restAll[0].split(" ");
         	name[i] = temp[0];
         	state[i] = temp[1];
+//        	if(state[i].equals("enter") && !hashSet.contains(name[i])) {
+//        		hashSet.add(name[i]);
+//        	}
+        	if(state[i].equals("enter") && !kuksList.contains(name[i])) {
+        		kuksList.add(name[i]);
+        	}
+        	
         }
         System.out.println();
 

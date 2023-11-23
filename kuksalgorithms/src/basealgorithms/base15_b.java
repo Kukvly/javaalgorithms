@@ -51,6 +51,8 @@ public class base15_b {
 
         // 최종적으로 남아있는 사람들을 정렬하여 출력
         List<String> sortedEmployees = new ArrayList<>(employees);
+        
+        // sortedEmployee list를 역순으로 정렬 (Collections.reverseOrder())
         Collections.sort(sortedEmployees, Collections.reverseOrder());
 
         for (String employee : sortedEmployees) {

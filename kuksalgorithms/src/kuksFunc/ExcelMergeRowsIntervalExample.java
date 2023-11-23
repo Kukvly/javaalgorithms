@@ -1,3 +1,4 @@
+/*
 package kuksFunc;
 
 import org.apache.poi.ss.usermodel.*;
@@ -76,6 +77,8 @@ public class ExcelMergeRowsIntervalExample {
         }
     }
 }
+*/
+
 //이 코드에서 setData 메서드는 엑셀 시트에 데이터를 입력하고, mergeRowsInterval 메서드는 일정 간격으로 특정 열을 기준으로 행을 병합합니다. 코드 실행 후 생성된 "workbook.xlsx" 파일을 확인하면 병합된 결과를 확인할 수 있습니다.
 
 

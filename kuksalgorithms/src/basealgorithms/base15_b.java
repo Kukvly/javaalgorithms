@@ -27,33 +27,34 @@ package basealgorithms;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class base15_b {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int n = Integer.parseInt(br.readLine());
-        Set<String> presentEmployees = new HashSet<>();
+        int n = Integer.parseInt(br.readLine()); // 로그의 수
+
+        Set<String> employees = new HashSet<>();
 
         for (int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             String name = st.nextToken();
             String status = st.nextToken();
 
-            if (status.equals("enter")) {
-                presentEmployees.add(name);
-            } else {
-                presentEmployees.remove(name);
+            if ("enter".equals(status)) {
+                employees.add(name); // 입실한 경우 집합에 추가
+            } else if ("leave".equals(status)) {
+                employees.remove(name); // 퇴실한 경우 집합에서 제거
             }
         }
 
-        // 남아 있는 사람들을 사전 순으로 정렬하여 출력
-        String[] result = presentEmployees.toArray(new String[0]);
-        for (int i = result.length - 1; i >= 0; i--) {
-            System.out.println(result[i]);
+        // 최종적으로 남아있는 사람들을 정렬하여 출력
+        List<String> sortedEmployees = new ArrayList<>(employees);
+        Collections.sort(sortedEmployees, Collections.reverseOrder());
+
+        for (String employee : sortedEmployees) {
+            System.out.println(employee);
         }
     }
 }

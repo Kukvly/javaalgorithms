@@ -22,7 +22,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 public class base16 {
@@ -43,16 +45,28 @@ public class base16 {
         String pocketmon[] = new String[n];
         
         Map<String, Object> paramMap = new HashMap<>();
-
         
-        for(int i=1; i<n+1; i++) {
-        	cnt = i;
+        Set<String> paramSet = new HashSet<>();
+        
+
+        for(int i=0; i<n; i++) {
         	pocketmon[i] = br.readLine();
-        	paramMap.put(cnt, pocketmon[i]);
+        	System.out.println("#############################");
         	System.out.println("pocketmon["+i+"]:" + pocketmon[i]);
-        	
+        	System.out.println("-----------------------------");
         	System.out.println("cnt: " + cnt);
+        	System.out.println("-----------------------------");
+        	
+        	paramMap.put(Integer.toString(cnt), pocketmon[i]);
+        	paramSet.add((String) paramMap.get(Integer.toString(cnt)));
+        	System.out.println(paramMap.get(Integer.toString(cnt)));
+        	System.out.println("*****************************");
+        	cnt++;
+        	
         }
         
+        System.out.println("paramMap.szie: " + paramMap.size());
+        System.out.println("paramSet: " + paramSet.toString());
+        System.out.println("paramSet.size: " + paramSet.size());
 	}
 }

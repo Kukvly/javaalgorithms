@@ -34,16 +34,24 @@ public class base16 {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
         
+        
+        int cnt = 0;
+        
         System.out.print(n);
         System.out.print(m);
         
         String pocketmon[] = new String[n];
         
         Map<String, Object> paramMap = new HashMap<>();
+
         
-        for(int i=0; i<n; i++) {
+        for(int i=1; i<n+1; i++) {
+        	cnt = i;
         	pocketmon[i] = br.readLine();
+        	paramMap.put(cnt, pocketmon[i]);
         	System.out.println("pocketmon["+i+"]:" + pocketmon[i]);
+        	
+        	System.out.println("cnt: " + cnt);
         }
         
 	}

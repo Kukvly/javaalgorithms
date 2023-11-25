@@ -113,7 +113,8 @@ public class base16_a {
 
 					if (paramMap.containsValue(answerMap.get(Integer.toString(y)))) {
 						System.out.println(answerMap.get(Integer.toString(y)));
-					} else if (paramMap.containsKey(x)) {
+					} else if (paramMap.containsKey(x)) { // answerMap의 값이 paramMap의 key면
+						// answerMap의 value가 paramMap의 key면 paramMap의 value를 출력 
 						System.out.println("good");
 //						System.out.println(x);
 					}

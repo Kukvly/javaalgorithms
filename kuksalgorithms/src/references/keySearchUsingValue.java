@@ -1,41 +1,34 @@
 package references;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 public class keySearchUsingValue {
-
 	public static void main(String[] args) {
-		List<String> keyList = new ArrayList<String>();
+		System.out.println("start ---------------");
+		Map<String, String> paramMap = new HashMap<>();
+        paramMap.put("1", "A");
+        paramMap.put("2", "B");
+        paramMap.put("3", "C");
+        paramMap.put("4", "D");
 
-		Scanner scan = new Scanner(System.in);
+        Map<String, String> answerMap = new HashMap<>();
+        answerMap.put("A", "X");
+        answerMap.put("C", "Y");
+        answerMap.put("E", "Z");
 
-		String m = scan.next();
-		String i = scan.next();
-		String j = scan.next();
+        printMatchingValues(paramMap, answerMap);
+        
+        System.out.println("end ---------------");
+        
+    }
 
-		Map<String, String> map = new HashMap<>();
-		map.put("1", m);
-		map.put("2", i);
-		map.put("3", j);
-		
-
-		for (Map.Entry<String, String> entry : map.entrySet()) {
-			if (entry.getValue().equals(j)) {
-//				keyList.add(entry.getKey());
-				System.out.println("keyList: " + keyList.toString());
-			} else if (entry.getValue().equals(m)) {
-				keyList.add(entry.getKey());
-//				System.out.println("keyList: " + keyList.toString());
-
-			} else if (entry.getValue().equals(i)) {
-				keyList.add(entry.getKey());
-//				System.out.println("keyList: " + keyList.toString());
-			}
-		}
-	}
-
+    private static void printMatchingValues(Map<String, String> paramMap, Map<String, String> answerMap) {
+        for (String answerValue : answerMap.values()) {
+            if (paramMap.containsKey(answerValue)) {
+                String correspondingValue = paramMap.get(answerValue);
+                System.out.println(correspondingValue);
+            }
+        }
+    }
 }

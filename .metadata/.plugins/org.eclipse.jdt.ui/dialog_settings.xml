@@ -3,6 +3,7 @@
 	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-17"/>
 	<item key="delegateUpdating" value="false"/>
+	<item key="UserLibraryLoadSaveDialog.size" value="535,442"/>
 	<section name="completion_proposal_size">
 	</section>
 	<section name="quick_assist_proposal_size">
@@ -55,5 +56,8 @@
 		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_HEIGHT" value="280"/>
 		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_SIZE" value="true"/>
 		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_LOCATION" value="false"/>
+	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item key="index" value="8"/>
 	</section>
 </section>

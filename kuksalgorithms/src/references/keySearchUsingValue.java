@@ -21,6 +21,14 @@ public class keySearchUsingValue {
         
         System.out.println("end ---------------");
         
+        String arr[] = {"13", "44", "ato", "pocka"};
+        
+        
+        System.out.println(Character.isDigit(arr[1].charAt(0)));
+        
+        System.out.println(Character.isDigit(arr[2].charAt(0)));
+        
+        
     }
 
     private static void printMatchingValues(Map<String, String> paramMap, Map<String, String> answerMap) {

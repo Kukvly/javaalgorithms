@@ -1,5 +1,9 @@
 package basealgorithms;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /*
  * [10816]
  * 숫자 카드는 정수 하나가 적혀져 있는 카드이다. 상근이는 숫자 카드 N개를 가지고 있다.
@@ -12,12 +16,51 @@ package basealgorithms;
  * 넷째 줄에는 상근이가 몇 개 가지고 있는 숫자 카드인지 구해야 할 M개의 정수
  * M > N
  * 
+ * ex.
+ * input 
+ * 10
+ * 6 3 2 10 10 10 -10 -10 7 3
+ * 8
+ * 10 9 -5 2 3 4 5 -10
+ * 
+ * output
+ * 3 0 0 1 2 0 0 2
+ * 10 3개
+ * 9 0개
+ * -5 0개
+ * 2 1개
+ * 3 2개
+ * 4 0개
+ * 5 0개
+ * -10 2개
+ * 
+ * 
  * */
 
 public class base17 {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		// card dummy cnt
+		int cardCnt = Integer.parseInt(br.readLine());
+
+		// card dummy
+		int cardArr[] = new int[cardCnt];
+
+		// StringTokenizer using
+		for (int i = 0; i < cardCnt; i++) {
+			cardArr[i] = Integer.parseInt(br.readLine());
+		}
+
+		// my card cnt
+		int myCnt = Integer.parseInt(br.readLine());
+
+		// my card
+		int myArr[] = new int[myCnt];
+
+		for (int i = 0; i < myCnt; i++) {
+
+		}
 
 	}
 

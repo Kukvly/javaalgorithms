@@ -46,10 +46,14 @@ public class base17 {
 
 		// card dummy
 		int cardArr[] = new int[cardCnt];
-
+		
+		// 알고리즘 풀 때 굉장히 자주 쓰이는 구문
+		// 띄어쓰기 기준으로 변수 받기
+		String[] input1 = br.readLine().split(" ");
 		// StringTokenizer using
 		for (int i = 0; i < cardCnt; i++) {
-			cardArr[i] = Integer.parseInt(br.readLine());
+			cardArr[i] = Integer.parseInt(input1[i]);
+			System.out.print(cardArr[i] + " ");
 		}
 
 		// my card cnt
@@ -57,9 +61,10 @@ public class base17 {
 
 		// my card
 		int myArr[] = new int[myCnt];
-
+		String[] input2 = br.readLine().split(" ");
 		for (int i = 0; i < myCnt; i++) {
-
+			myArr[i] = Integer.parseInt(input2[i]);
+			System.out.print(myArr[i] + " ");
 		}
 
 	}

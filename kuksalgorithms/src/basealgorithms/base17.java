@@ -3,6 +3,7 @@ package basealgorithms;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 /*
  * [10816]
@@ -49,11 +50,12 @@ public class base17 {
 		
 		// 알고리즘 풀 때 굉장히 자주 쓰이는 구문
 		// 띄어쓰기 기준으로 변수 받기
-		String[] input1 = br.readLine().split(" ");
-		// StringTokenizer using
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		
+		//String[] input1 = br.readLine().split(" ");
 		for (int i = 0; i < cardCnt; i++) {
-			cardArr[i] = Integer.parseInt(input1[i]);
-			System.out.print(cardArr[i] + " ");
+			//cardArr[i] = Integer.parseInt(input1[i]);
+			cardArr[i] = Integer.parseInt(st.nextToken());
 		}
 
 		// my card cnt
@@ -61,12 +63,25 @@ public class base17 {
 
 		// my card
 		int myArr[] = new int[myCnt];
-		String[] input2 = br.readLine().split(" ");
+		
+		int cntArr[] = new int [myCnt];
+		
+		st = new StringTokenizer(br.readLine(), " ");
+		
+//		String[] input2 = br.readLine().split(" ");
 		for (int i = 0; i < myCnt; i++) {
-			myArr[i] = Integer.parseInt(input2[i]);
-			System.out.print(myArr[i] + " ");
+//			myArr[i] = Integer.parseInt(input2[i]);
+			myArr[i] = Integer.parseInt(st.nextToken());
+			cntArr[i] = 0;
+			
+			for(int j=0; j<cardCnt; j++) {
+				if(myArr[i] == cardArr[j]) {
+					cntArr[i]++;
+				}
+			}
+			
+			System.out.print(cntArr[i] + " ");
 		}
-
 	}
 
 }

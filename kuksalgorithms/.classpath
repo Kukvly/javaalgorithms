@@ -8,20 +8,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/commons-collections4-4.1.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/ooxml-schemas-1.0.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/ooxml-security-1.0.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/openxml4j-1.0-beta.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/poi-4.1.0.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/poi-examples-4.0.0.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/poi-excelant-4.0.0.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/poi-ooxml-4.0.0.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/poi-ooxml-full-5.0.0.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/poi-ooxml-lite-5.0.0.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/poi-ooxml-schemas-4.0.0.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/poi-scratchpad-4.0.0.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/xmlbeans-5.0.0.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/commons-compress-1.9.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/log4j-core-2.2.jar"/>
-	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/log4j-api-2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/poi-3.15.jar"/>
+	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/poi-ooxml-3.15.jar"/>
+	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/poi-ooxml-schemas-3.15.jar"/>
+	<classpathentry kind="lib" path="/Users/kukvly/kuksDev/kukslib/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

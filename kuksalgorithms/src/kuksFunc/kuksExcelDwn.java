@@ -14,20 +14,31 @@ public class kuksExcelDwn {
 
 	public static void main(String[] args) throws IOException{
         Workbook workbook = new XSSFWorkbook();
-        Sheet sheet = workbook.createSheet("kuks");
+
+        String fileName = "kuksExcel";
+
+        
+        Sheet sheet = workbook.createSheet(fileName+"Sheet");
         
         System.out.println("start");
         
-        String fileName = "kuksExcel";
-
+        
         // sheet.addMergedRegion(new CellRangeAddress(시작 기준 행, 마지막 행, 시작 기준 열, 마지막 열)
         // 0열 - 0행~2행 병합
-        CellRangeAddress mergedRegion = new CellRangeAddress(0,2,0,0);
+        CellRangeAddress mergedRegion = new CellRangeAddress(1,8,0,0);
         sheet.addMergedRegion(mergedRegion);
 
         // 0행 - 0열~2열 병합
-        mergedRegion = new CellRangeAddress(0,0,0,2);
+        mergedRegion = new CellRangeAddress(9,16,0,2);
         sheet.addMergedRegion(mergedRegion);
+        
+        mergedRegion = new CellRangeAddress(17,24,0,2);
+        sheet.addMergedRegion(mergedRegion);
+        
+        mergedRegion = new CellRangeAddress(1,7,3,3);
+        sheet.addMergedRegion(mergedRegion);
+        
+        
 
         // 데이터를 엑셀 시트에 쓰기
         Row row = sheet.createRow(0);
@@ -38,6 +49,10 @@ public class kuksExcelDwn {
         cell.setCellValue("kuks");
         
         row = sheet.createRow(1);
+        cell = row.createCell(0);
+        cell.setCellValue("96");
+        
+        row = sheet.createRow(10);
         cell = row.createCell(0);
         cell.setCellValue("28");
         

@@ -24,11 +24,9 @@ public class kuksExcelDwn {
         
         
         // sheet.addMergedRegion(new CellRangeAddress(시작 기준 행, 마지막 행, 시작 기준 열, 마지막 열)
-        // 0열 - 0행~2행 병합
         CellRangeAddress mergedRegion = new CellRangeAddress(1,8,0,0);
         sheet.addMergedRegion(mergedRegion);
 
-        // 0행 - 0열~2열 병합
         mergedRegion = new CellRangeAddress(9,16,0,2);
         sheet.addMergedRegion(mergedRegion);
         

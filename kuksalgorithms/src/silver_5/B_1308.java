@@ -1,4 +1,4 @@
-package silver_4;
+package silver_5;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -72,17 +72,17 @@ public class B_1308 {
 		
 		if (mm1==1 || mm1==3 || mm1==5 || mm1==7 || mm1==8 || mm1==10 || mm1==12) {
 			if(dd1>31) {
-				break;
+//				break;
 			}
 		}
 		
-		if(mm1==mm[])
+//		if(mm1==mm[])
 		
 		
 		
 		
 			
-		if(yyyy)
+		
 		
 	}
 

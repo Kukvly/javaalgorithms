@@ -13,6 +13,7 @@ public class B_1996 {
 		String mine[][] = new String[n][n];
 		String rst[][] = new String[n][n];
 
+		// input
 		for (int i = 0; i < n; i++) {
 			String row = br.readLine();
 			for (int j = 0; j < n; j++) {
@@ -26,20 +27,71 @@ public class B_1996 {
 
 		}
 
-		// logic
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
-				if (Character.isDigit(mine[i][j].charAt(0))) {
-					rst[i][j] = "*";
-				} else {
-//					rst[i][j] = mine[i][j];
-				}
-				System.out.print(rst[i][j]);
+		// 1 x 1
+		if (n == 1) {
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < n; j++) {
+					if (Character.isDigit(mine[i][j].charAt(0))) {
+						rst[i][j] = "*";
+					} else {
+						rst[i][j] = mine[i][j];
 
+					}
+					System.out.print(rst[i][j]);
+
+				}
+				System.out.println();
 			}
-			System.out.println();
+
 		}
 
-	}
+		// 2 x 2
+		int sum2 = 0;
+		if (n == 2) {
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < n; j++) {
+					if (Character.isDigit(mine[i][j].charAt(0))) {
+						rst[i][j] = "*";
+						sum2 += Integer.parseInt(mine[i][j]);
+					}
 
+					else {
+						rst[i][j] = rst[i][j];
+					}
+				}
+			}
+
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < n; j++) {
+					if (Character.isDigit(mine[i][j].charAt(0))) {
+						rst[i][j] = "*";
+					}
+
+					else {
+						rst[i][j] = String.valueOf(sum2);
+					}
+
+					System.out.print(rst[i][j]);
+				}
+				System.out.println("");
+			}
+		}
+		
+		// logic (n x n)
+		if (n > 2) {	
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < n; j++) {
+					if (Character.isDigit(mine[i][j].charAt(0))) {
+						rst[i][j] = "*";
+					} else {
+						rst[i][j] = mine[i][j];
+
+					}
+					System.out.print(rst[i][j]);
+
+				}
+				System.out.println();
+			}
+		}
+	}
 }

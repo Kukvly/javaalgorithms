@@ -11,22 +11,35 @@ public class B_1996 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
 		String mine[][] = new String[n][n];
+		String rst[][] = new String[n][n];
 
 		for (int i = 0; i < n; i++) {
-			String row = br.readLine(); 
+			String row = br.readLine();
 			for (int j = 0; j < n; j++) {
-				if(Character.isDigit(row.charAt(j))) {
+				rst[i][j] = "0";
+				if (Character.isDigit(row.charAt(j))) {
 					mine[i][j] = (String.valueOf(row.charAt(j)));
-				}
-				else {
+				} else {
 					mine[i][j] = ".";
 				}
-            }
-		}
-		
-		// logic
-		
-	}
+			}
 
+		}
+
+		// logic
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				if (Character.isDigit(mine[i][j].charAt(0))) {
+					rst[i][j] = "*";
+				} else {
+//					rst[i][j] = mine[i][j];
+				}
+				System.out.print(rst[i][j]);
+
+			}
+			System.out.println();
+		}
+
+	}
 
 }

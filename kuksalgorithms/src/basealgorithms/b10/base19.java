@@ -13,7 +13,12 @@ import java.io.IOException;
 public class base19 {
 
 	public static void main(String[] args) throws IOException {
-
+		int c = 3;
+		char cnt = '3';
+		char a;
+		
+		a = (char)(c + '0');
+		System.out.println("a: " + a);
 	}
 
 }

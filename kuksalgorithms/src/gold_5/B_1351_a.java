@@ -3,6 +3,7 @@ package gold_5;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 
 /**
  * 
@@ -30,8 +31,21 @@ import java.io.InputStreamReader;
 
 // 범위 에러
 
-public class B_1351 {
+public class B_1351_a {
 
+	static HashMap<Long, Long> memo = new HashMap<>();
+
+    static long infiniteSequence(long n, long p, long q) {
+        if (n == 0) return 1;
+        if (memo.containsKey(n)) return memo.get(n);
+
+        long result = infiniteSequence(n / p, p, q) + infiniteSequence(n / q, p, q);
+        memo.put(n, result);
+        System.out.println("show memo: " + memo.toString());
+        return result;
+    }
+	
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String num[] = br.readLine().split(" ");
@@ -39,17 +53,7 @@ public class B_1351 {
 		long p = Long.parseLong(num[1]);
 		long q = Long.parseLong(num[2]);
 
-		long a[] = new long[(int) (n + 1)];
-
-		// default 값
-		a[0] = 1;
-
-		if (n >= 1) {
-			for (long i = 1; i <= n; i++) {
-				a[(int) i] = a[(int) (i / p)] + a[(int) (i / q)];
-			}
-		}
-
-		System.out.println(a[(int) n]);
+		System.out.println("kuks chk");
+		System.out.println(infiniteSequence(n, p, q));
 	}
 }

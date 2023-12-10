@@ -37,44 +37,21 @@ public class B_1351 {
 		int p = Integer.parseInt(num[1]);
 		int q = Integer.parseInt(num[2]);
 
-		int a = 1;
+		int a[] = new int[n+1];
 
-		if (p == q) {
-			for (int i = 0; i < n; i++) {
+		// default 값
+		a[0] = 1;
 
+		if(n>=1) {
+			for(int i=1; i<=n; i++) {
+				a[i]=a[i/p]+a[i/q];
 			}
+		} 
+		
+		System.out.println(a[n]);
 
-		}
-
-		if (p > q) {
-
-		}
-
+		
 	}
-
-	public static void gauss(int k, int p, int q) {
-		int ip = 0;
-		int iq = 0;
-		if (p == q) {
-			if (k > p) {
-				ip = k/p;
-			}
-			if (k == p) {
-				
-			}
-			if (k < p) {
-
-			}
-		}
-
-		if (k > p) {
-			ip = k / p;
-		}
-
-		if (k > q) {
-			iq = k / q;
-		}
-
-	}
-
+	
+	
 }

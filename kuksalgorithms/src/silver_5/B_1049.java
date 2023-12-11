@@ -3,6 +3,7 @@ package silver_5;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 /**
  * 
@@ -20,21 +21,16 @@ import java.io.InputStreamReader;
  *         ex. input 4 2 12 3 15 4
  * 
  *         output 12
- *         
- *         끊어진 줄 % 6 = a (패키지 가격 낱개 가격)
- *         낱개 = b
- *         패키지 가격 < 6 * b
- *         6 * 패키지 낱개가격 + 나머지수량 * 낱개 가격 = 낼 돈1
- *         6 * 패키지 낱개가격 + 패키지가격 = 낼 돈2
- *         
- *         if(낼 돈1 >= 낼 돈2)
- *         패키지가격 * 패키지수량 + (나머지수량 * 낱개가격)
- *         
- *         
- *         if(낼 돈1 < 낼 돈2)
- *         패키지가격 * 패키지수량 + 패키지 1개 가격
- *         
- *         
+ * 
+ *         끊어진 줄 % 6 = a (패키지 가격 낱개 가격) 낱개 = b 패키지 가격 < 6 * b 6 * 패키지 낱개가격 +
+ *         나머지수량 * 낱개 가격 = 낼 돈1 6 * 패키지 낱개가격 + 패키지가격 = 낼 돈2
+ * 
+ *         if(낼 돈1 >= 낼 돈2) 패키지가격 * 패키지수량 + (나머지수량 * 낱개가격)
+ * 
+ * 
+ *         if(낼 돈1 < 낼 돈2) 패키지가격 * 패키지수량 + 패키지 1개 가격
+ * 
+ * 
  */
 
 public class B_1049 {
@@ -44,26 +40,43 @@ public class B_1049 {
 		String input[] = br.readLine().split(" ");
 		// n<=100 line to need
 		int n = Integer.parseInt(input[0]);
-		
+
 		// m<=50 num of brand
 		int m = Integer.parseInt(input[1]);
-		
-		int packArr[] = new int[m];
+
 		int sepArr[] = new int[m];
-		
-		for (int i=0; i<m; i++) {
+		int packArr[] = new int[m];
+		int minPack[] = new int[m];
+		int minSep[] = new int[m];
+
+		/*
+		 * (N/6)*packArr[i] 이게 가장 작은거 + (N%6)*sepArr[i] 이게 가장 작은거
+		 */
+
+		for (int i = 0; i < m; i++) {
+			minPack[i] = 0;
+			minSep[i] = 0;
+
 			input = br.readLine().split(" ");
 			int packPrice = Integer.parseInt(input[0]);
 			int sepPrice = Integer.parseInt(input[1]);
-			packArr[i] = packPrice/6;
+
+			packArr[i] = packPrice;
 			sepArr[i] = sepPrice;
+
+			minPack[i] = (n / 6) * packPrice;
+
+			if (packArr[i] <= (n % 6) * sepArr[i]) {
+				minSep[i] = packArr[i];
+			} else {
+				minSep[i] = (n % 6) * sepArr[i];
+			}
+
 		}
-		
-		// logic
-		if(n%6==0) {
-			
-		}
-		
+		Arrays.sort(minPack);
+		Arrays.sort(minSep);
+
+		System.out.print(minPack[0] + minSep[0]);
 	}
 
 }

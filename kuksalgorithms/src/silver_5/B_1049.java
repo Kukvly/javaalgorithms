@@ -20,6 +20,21 @@ import java.io.InputStreamReader;
  *         ex. input 4 2 12 3 15 4
  * 
  *         output 12
+ *         
+ *         끊어진 줄 % 6 = a (패키지 가격 낱개 가격)
+ *         낱개 = b
+ *         패키지 가격 < 6 * b
+ *         6 * 패키지 낱개가격 + 나머지수량 * 낱개 가격 = 낼 돈1
+ *         6 * 패키지 낱개가격 + 패키지가격 = 낼 돈2
+ *         
+ *         if(낼 돈1 >= 낼 돈2)
+ *         패키지가격 * 패키지수량 + (나머지수량 * 낱개가격)
+ *         
+ *         
+ *         if(낼 돈1 < 낼 돈2)
+ *         패키지가격 * 패키지수량 + 패키지 1개 가격
+ *         
+ *         
  */
 
 public class B_1049 {
@@ -27,19 +42,28 @@ public class B_1049 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input[] = br.readLine().split(" ");
-		// n<=100
+		// n<=100 line to need
 		int n = Integer.parseInt(input[0]);
 		
-		// m<=50
+		// m<=50 num of brand
 		int m = Integer.parseInt(input[1]);
+		
+		int packArr[] = new int[m];
+		int sepArr[] = new int[m];
 		
 		for (int i=0; i<m; i++) {
 			input = br.readLine().split(" ");
-			int tempN = Integer.parseInt(input[0]);
-			int tempM = Integer.parseInt(input[1]);
+			int packPrice = Integer.parseInt(input[0]);
+			int sepPrice = Integer.parseInt(input[1]);
+			packArr[i] = packPrice/6;
+			sepArr[i] = sepPrice;
 		}
 		
 		// logic
+		if(n%6==0) {
+			
+		}
+		
 	}
 
 }

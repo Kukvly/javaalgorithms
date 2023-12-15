@@ -36,6 +36,8 @@ import java.io.InputStreamReader;
  *
  */
 
+
+
 public class B_1260 {
 
 	public static void main(String[] args) throws IOException{
@@ -44,6 +46,10 @@ public class B_1260 {
 		int n = Integer.parseInt(input[0]);
 		int m = Integer.parseInt(input[1]);
 		int v = Integer.parseInt(input[2]);
+		
+		for (int i=0; i<m; i++) {
+			
+		}
 		
 	}
 

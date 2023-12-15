@@ -16,35 +16,34 @@ import java.io.InputStreamReader;
  *         output 계단 오르기 게임에서 얻을 수 있는 총 점수의 최댓값
  */
 
-public class B_2579 {
+public class B_2579_a {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 		int n = Integer.parseInt(br.readLine());
-		int st[] = new int[n + 1];
-		int score[] = new int[n + 1];
+		int[] stairs = new int[n + 1];
+		int[] dp = new int[n + 1];
 
 		for (int i = 1; i <= n; i++) {
-			st[i] = Integer.parseInt(br.readLine());
+			stairs[i] = Integer.parseInt(br.readLine());
 		}
+
+		// 계단이 한 개일 경우
 		if (n == 1) {
-			System.out.println(st[1]);
+			System.out.println(stairs[1]);
 			return;
 		}
-		score[1] = st[1];
-		score[2] = st[1]+st[2];
-		
+
+		// 계단이 두 개일 경우
+		dp[1] = stairs[1];
+		dp[2] = stairs[1] + stairs[2];
+
+		// 계단이 세 개 이상일 경우
 		for (int i = 3; i <= n; i++) {
-			// rtn3=rtn1+st3, rtn0+st2+st3
-			// rtn4=rtn2+st4, rtn1+st3+st4
-			// rtn5=rtn3+st5. rtn2+st4+st5
-			// rtn6=rtn4+st6, rtn3+st5+st6
-			score[i] = Math.max((score[i - 2] + st[i]), (score[i - 3] + st[i - 1] + st[i]));
-
+			dp[i] = Math.max(dp[i - 2] + stairs[i], dp[i - 3] + stairs[i - 1] + stairs[i]);
 		}
-		System.out.println("---------------------------------");
-		System.out.println(score[n]);
-		System.out.println("---------------------------------");
-	}
 
+		System.out.println(dp[n]);
+	}
 }

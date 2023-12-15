@@ -51,9 +51,10 @@ public class B_1260_a {
 
 		// 간선 정보 입력
 		for (int i = 0; i < M; i++) {
-			int a = sc.nextInt();
-			int b = sc.nextInt();
-
+			String nodeInfo[] = br.readLine().split(" ");
+			int a = Integer.parseInt(nodeInfo[0]);
+			int b = Integer.parseInt(nodeInfo[1]);
+			
 			// 양방향 간선이므로 양쪽에 모두 추가
 			graph.get(a).add(b);
 			graph.get(b).add(a);
@@ -72,7 +73,6 @@ public class B_1260_a {
 		visited = new boolean[N + 1]; // BFS를 위해 visited 배열 초기화
 		bfs(V);
 
-		sc.close();
 	}
 
 	// 깊이 우선 탐색(DFS)

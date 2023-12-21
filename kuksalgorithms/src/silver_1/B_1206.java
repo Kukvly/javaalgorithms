@@ -1,4 +1,4 @@
-package silver_2;
+package silver_1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -46,9 +46,10 @@ public class B_1206 {
 		}
 		inputAvg = inputSum/n;
 		
-		System.out.print("inputAvg: "+inputAvg);
-		System.out.print("inputAvg/8: "+(inputAvg/8));
-		System.out.print("inputAvg%8: "+(inputAvg%8));
+		System.out.println("inputAvg: "+inputAvg);
+		System.out.println("inputAvg/8: "+(inputAvg/8));
+		System.out.println("inputAvg%8: "+(inputAvg%8));
+		
 		 
 	}
 

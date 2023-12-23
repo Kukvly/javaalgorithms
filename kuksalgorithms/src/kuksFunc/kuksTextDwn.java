@@ -15,7 +15,7 @@ public class kuksTextDwn {
 		int month = Integer.parseInt(input[1]);
 		
 		String filePath = "/Users/kukvly/Documents/";
-		String fileName = year +"Y"+ month +"M_TestTxt";
+		String fileName = year +"Y"+ month +"M_TestTxt.txt";
 	
 		try (PrintWriter pr = new PrintWriter(new FileWriter(filePath+fileName))){
 			for (int i=0; i<10; i++) {

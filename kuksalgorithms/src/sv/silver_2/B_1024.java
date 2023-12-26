@@ -40,8 +40,8 @@ import java.io.InputStreamReader;
 
 public class B_1024 {
 	public static void main(String[] args) throws IOException {
-		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-		String[] input = buffer.readLine().split(" ");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String[] input = br.readLine().split(" ");
 		int n = Integer.parseInt(input[0]);
 		int l = Integer.parseInt(input[1]);
 

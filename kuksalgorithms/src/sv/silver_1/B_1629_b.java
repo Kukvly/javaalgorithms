@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
  * A를 B번 곱한 수를 C로 나눈 나머지 출력
  */
 
-public class B_1629 {
+public class B_1629_b {
 
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,10 +27,23 @@ public class B_1629 {
 		long b = Long.parseLong(input[1]);
 		long c = Long.parseLong(input[2]);
 		
+		long rtn = cal(a, b, c);
+		
+		System.out.println(rtn);
+	}
+	
+	public static long cal(long a, long b, long c) {
 		if(b==0) {
-			System.out.println(1);
-		} else {
-			System.out.println((long)(Math.pow(a, b)%c));
+			return 1;
 		}
+		if(b==1) {
+			return a%c;
+		}
+		long rst = cal(a, b/2,c);
+		rst = (rst*rst) % c;
+		if(b%2==0) {
+			rst = (rst%a)%c;
+		} 
+		return rst;
 	}
 }

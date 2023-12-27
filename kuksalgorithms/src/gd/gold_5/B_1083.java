@@ -51,6 +51,7 @@ public class B_1083 {
 		int n = Integer.parseInt(br.readLine());
 		String input[] = br.readLine().split(" ");
 		
+		
 	}
 
 }

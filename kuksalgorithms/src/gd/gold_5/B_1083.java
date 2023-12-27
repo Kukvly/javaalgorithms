@@ -1,4 +1,9 @@
 package gd.gold_5;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * 
  * @author kukvly
@@ -16,13 +21,36 @@ package gd.gold_5;
  * 
  * output
  * 첫째 줄에 문제의 정답을 출력한다.
+ * 
+ * 
+ * 7
+ * 10 20 30 40 50 60 70
+ * 1
+ * 
+ * 20 10 30 40 50 60 70
+ * 
+ * 
+ * 5
+ * 3 5 1 2 4
+ * 2
+ * 
+ * 5 3 2 1 4
+ * 
+ * 
+ * 10
+ * 19 20 17 18 15 16 13 14 11 12
+ * 5
+ * 
+ * 20 19 18 17 16 15 14 13 12 11
  *
  */
 public class B_1083 {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void main(String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int n = Integer.parseInt(br.readLine());
+		String input[] = br.readLine().split(" ");
+		
 	}
 
 }

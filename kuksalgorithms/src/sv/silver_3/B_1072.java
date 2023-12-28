@@ -28,16 +28,19 @@ public class B_1072 {
 
 		long MAX_NUM = Long.MAX_VALUE;
 
-		for (long i = 0; i <= (MAX_NUM-x); i++) {
+		for (long i = 0; i <= (MAX_NUM - x); i++) {
 			compareZ = (long) (((y + i) / (x + i)) * 100);
-			if(z>=99) {
+			if (z >= 99) {
 				// x==y
 				System.out.println("-1");
 				return;
-			} else if (z < compareZ) {
-				System.out.println(i);
-				return;
+			} else {
+				if (z < compareZ) {
+					System.out.println(i);
+					return;
+				}
 			}
+
 		}
 	}
 

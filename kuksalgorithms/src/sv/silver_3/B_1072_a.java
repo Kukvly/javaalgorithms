@@ -20,23 +20,35 @@ public class B_1072_a {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input[] = br.readLine().split(" ");
-		double x = Double.parseDouble(input[0]);
-		double y = Double.parseDouble(input[1]);
+		long x = Long.parseLong(input[0]);
+		long y = Long.parseLong(input[1]);
 
-		long z = (long) ((y / x) * 100);
-		long compareZ = 0;
+		long z = (long) ((y * 100) / x);
 
-		long MAX_NUM = Long.MAX_VALUE;
-
-		for (long i = 0; i <= (MAX_NUM-x); i++) {
-			compareZ = (long) (((y + i) / (x + i)) * 100);
-			if (z < compareZ) {
-				System.out.println(i);
-				return;
+		if(z>=99) {
+			System.out.println(-1);
+		} else {
+			long low = 0;
+			long high = 1000000000;
+			long rtn = -1;
+			
+			while(low<=high) {
+				long n = (low + high)/2;
+				long _x = x + n;
+				long _y = y + n;
+				
+				long _z = (_y*100) / _x;
+				
+				if(z < _z) {
+					high = n - 1;
+					rtn = n;
+				} else {
+					low = n + 1;
+				}
 			}
-		}
-		// x==y
-		System.out.println("-1");
-	}
+			
 
+			System.out.println(rtn);
+		}
+	}
 }

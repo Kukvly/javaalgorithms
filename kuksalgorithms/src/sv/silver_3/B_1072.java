@@ -34,7 +34,7 @@ public class B_1072 {
 				// x==y
 				System.out.println("-1");
 				return;
-			} else if (z < compareZ && z<99) {
+			} else if (z < compareZ) {
 				System.out.println(i);
 				return;
 			}

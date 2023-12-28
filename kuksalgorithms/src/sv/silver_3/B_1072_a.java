@@ -15,13 +15,13 @@ import java.io.InputStreamReader;
  *
  */
 
-public class B_1072 {
+public class B_1072_a {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input[] = br.readLine().split(" ");
-		long x = Long.parseLong(input[0]);
-		long y = Long.parseLong(input[1]);
+		double x = Double.parseDouble(input[0]);
+		double y = Double.parseDouble(input[1]);
 
 		long z = (long) ((y / x) * 100);
 		long compareZ = 0;
@@ -30,15 +30,13 @@ public class B_1072 {
 
 		for (long i = 0; i <= (MAX_NUM-x); i++) {
 			compareZ = (long) (((y + i) / (x + i)) * 100);
-			if(z>=99) {
-				// x==y
-				System.out.println("-1");
-				return;
-			} else if (z < compareZ && z<99) {
+			if (z < compareZ) {
 				System.out.println(i);
 				return;
 			}
 		}
+		// x==y
+		System.out.println("-1");
 	}
 
 }

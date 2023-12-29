@@ -3,9 +3,6 @@ package sv.silver_1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * 
@@ -32,7 +29,7 @@ public class B_2824 {
 
 		for (int i = 0; i < n; i++) {
 			nArr[i] = Long.parseLong(nn[i]);
-			a = a * nArr[i];
+			a = (a * nArr[i]);// % 1000000000;
 		}
 
 		// m
@@ -45,61 +42,25 @@ public class B_2824 {
 
 		for (int i = 0; i < m; i++) {
 			mArr[i] = Long.parseLong(mm[i]);
-			b = b * mArr[i];
+			b = (b * mArr[i]);// % 1000000000;
 		}
 
-		if (a >= b) {
-			long maxDiv[] = new long[(int)a];
-			for (int i = 0; i < a; i++) {
-				if (a % (i + 1) == 0 && b % (i + 1) == 0) {
-					maxDiv[i] = i + 1;
-					System.out.println("maxDiv["+i+"]: "+maxDiv[i]);
-				}
-			}
-			long rtn = calMaxDiv(maxDiv);
-			if (Long.toString(rtn).length() > 9) {
-				System.out.println(result(rtn));
-			} else {
-				System.out.println(rtn);
-			}
+		String rtn = Long.toString(gcd(a, b));
 
-			return;
-		} else if (a < b) {
-			long maxDiv[] = new long[(int)b];
-//			List<Long> divList = new ArrayList<>();
-			for (int i = 0; i < b; i++) {
-				if (a % (i + 2) == 0 && b % (i + 2) == 0) {
-					maxDiv[i] = i + 2;
-					System.out.println(maxDiv[i]);
-				}
-			}
-			long rtn = calMaxDiv(maxDiv);
-			if (Long.toString(rtn).length() > 9) {
-				System.out.println(result(rtn));
-			} else {
-				System.out.println(rtn);
-			}
-			return;
+		if (rtn.length() > 9) {
+			rtn = rtn.substring(rtn.length() - 9);
 		}
+
+		System.out.println(rtn);
+
 	}
 
-	public static long calMaxDiv(long arr[]) {
-		// 내림차순으로 정렬
-		Arrays.sort(arr);
-		// 배열을 뒤집어서 내림차순으로 만듦
-		for (int i = 0; i < arr.length / 2; i++) {
-			long temp = arr[i];
-			arr[i] = arr[arr.length - i - 1];
-			arr[arr.length - i - 1] = temp;
+	public static long gcd(long a, long b) {
+		while (b != 0) {
+			long tmp = b;
+			b = a % b;
+			a = tmp;
 		}
-		return arr[0];
-//		return arr[arr.length-1];
+		return a;
 	}
-
-	public static String result(long rtn) {
-		String tmp = Long.toString(rtn);
-		String str = tmp.substring(tmp.length() - 9, tmp.length());
-		return str;
-	}
-
 }

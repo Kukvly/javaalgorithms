@@ -31,6 +31,18 @@ public class Pr2 {
 		String tmp = Long.toString(rtn);
 		String str = tmp.substring(tmp.length() - 9, tmp.length());
 		System.out.println(str);
+		
+		System.out.println("-----------------------------");
+		
+		long kuks = 12019;
+		String kukks = Long.toString(kuks);
+		System.out.println("kuks String length: " + kukks.length());
+		String rtnKuks = kukks;
+		for (int i=0; i<9-kukks.length(); i++) {
+			rtnKuks= "0"+rtnKuks;
+		}
+		System.out.println(rtnKuks);
+		
 	}
 
 }

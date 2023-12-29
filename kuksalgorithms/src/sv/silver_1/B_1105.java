@@ -18,28 +18,34 @@ public class B_1105 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input[] = br.readLine().split(" ");
+		
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+
+//        String l = st.nextToken();
+//        String r = st.nextToken();
+		
 		String l = input[0];
 		String r = input[1];
 		
-		long numL = Long.parseLong(l);
-		long numR = Long.parseLong(r);
-
-		String numArr[] = new String[(int) (Integer.parseInt(r) - Integer.parseInt(l)) + 1];
-//		char c = '8';
-//		int rank[] = new int[numArr.length];
-		int minCnt = 9;
+		if(l.length()!=r.length()) {
+			System.out.println(0);
+			return;
+		}
+		
+		int numL = Integer.parseInt(l);
+		int numR = Integer.parseInt(r);
+		
+		String numArr[] = new String[numR - numL + 1];
+		int minCnt[] = new int[numArr.length];
+//		int minCnt = 0; // 9
 		for (int i = 0; i < numArr.length; i++) {
-			numArr[i] = String.valueOf(Integer.parseInt(l) + i);
-//			rank[i] = cntEight(numArr[i], '8');
-			minCnt = Math.min(minCnt, cntEight(numArr[i], '8'));
+			numArr[i] = Integer.toString(numL + i);
+			minCnt[i] = cntEight(numArr[i], '8');
 
 
 		}
-		System.out.println(minCnt);
-
-//		Arrays.sort(rank);
-
-//		System.out.println(rank[0]);
+		Arrays.sort(minCnt);
+		System.out.println(minCnt[0]);
 
 	}
 

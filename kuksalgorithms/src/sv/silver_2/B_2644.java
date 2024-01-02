@@ -1,5 +1,13 @@
 package sv.silver_2;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * 
  * @author kukvly
@@ -30,8 +38,8 @@ package sv.silver_2;
  * 4 6
  * 
  * 7과 3의 촌수 번호를 계산
- * 1 은 2, 3의 부모 (1,2)=1, (1,3)=1
- * (2,7)=1, (2,8)=1, (2,9)=1
+ * 1 은 2, 3의 부모 (1,2)=1, (1,3)=1	1 - 2, 3
+ * (2,7)=1, (2,8)=1, (2,9)=1		2 - 7,8,9
  * (4,5)=1, (4,6)=1
  *  
  * 
@@ -46,8 +54,30 @@ package sv.silver_2;
 
 public class B_2644 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int n = Integer.parseInt(br.readLine());
+		String input[] = br.readLine().split(" ");
 		
-	}
+		// a, b
+		int a = Integer.parseInt(input[0]);
+		int b = Integer.parseInt(input[1]);
+		
+		int m = Integer.parseInt(br.readLine());
+		Map<Integer,Integer> mMap = new HashMap<>();
+		List<Map<Integer, Integer>> mList = new ArrayList<>();
+		
+		for (int i=0; i<m; i++) {
+			input = br.readLine().split(" ");
+			int x = Integer.parseInt(input[0]);
+			int y = Integer.parseInt(input[1]);
+			
+			mMap.put(x, y);
+			mList.add(mMap);
+		}
+		System.out.println("");
+		System.out.println("mMap: " + mMap.toString());
+		System.out.println("mList: " + mList.toString());
+	};
 
 }

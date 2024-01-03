@@ -92,6 +92,7 @@ public class B_1260_a {
 	private static void bfs(int start) {
 		Queue<Integer> queue = new LinkedList<>();
 		visited[start] = true;
+		// 시작점 추가
 		queue.offer(start);
 
 		while (!queue.isEmpty()) {

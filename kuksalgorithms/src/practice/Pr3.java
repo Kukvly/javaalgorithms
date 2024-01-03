@@ -44,6 +44,7 @@ public class Pr3 {
 		m = Integer.parseInt(input[1]);
 		v = Integer.parseInt(input[2]);
 
+		// DFS를 위한 visited 배열 초기화
 		visited = new boolean[n + 1]; // node number 표현을 위해 visited 배열 사이즈를 n+1로 함
 		graph = new ArrayList<>();
 
@@ -70,16 +71,24 @@ public class Pr3 {
 			graph.get(b).add(a); // b번째 인덱스에 해당하는 null 값 담긴 배열에 a라는 값 입력
 			System.out.println("graph.get(" + b + "): " + graph.get(b));
 		}
-
+		
+		System.out.println("");
+		System.out.println("====================kuks chk======================");
+		System.out.println("");
+		
 		for (int i = 1; i <= n; i++) {
-			System.out.print("graph.get(" + i +"): ");
+			System.out.print("graph.get(" + i + "): ");
 			System.out.println(graph.get(i));
 		}
+
+		System.out.println("");
+		System.out.println("==================================================");
+		System.out.println("");
 		
 		// 그래프 정점별로 정렬
 		for (int i = 1; i <= n; i++) {
 			Collections.sort(graph.get(i));
-			System.out.print("graph.get(" + i +"): ");
+			System.out.print("graph.get(" + i + "): ");
 			System.out.println(graph.get(i));
 		}
 
@@ -88,35 +97,62 @@ public class Pr3 {
 		System.out.println("kuks chk");
 		System.out.println("==================================================");
 		System.out.println("");
-		
-
 
 //		// DFS 수행
 //		dfs(v);
 //		System.out.println();
 //
 //		// BFS 수행
-//		visited = new boolean[n + 1]; // BFS를 위해 visited 배열 초기화
+//		// BFS를 위해 visited 배열 초기화
+//		visited = new boolean[n + 1];
 //		bfs(v);
-
+		System.out.println("------------------------------");
+		System.out.println("---------- - -----------------");
+		System.out.println("---------     ----------------");
+		System.out.println("------------- ----------------");
+		System.out.println("-------  ---- ----  ----------");
+		System.out.println("--------- -- - -- ------------");
+		System.out.println("----------- - - --------------");
+		System.out.println("---------- -- -- -------------");
+		System.out.println("--------   -- --   -----------");
+		System.out.println("------------------------------");
+		System.out.println("------------------------------");
+		System.out.println("start-------------------------");
+		System.out.println("------------------------------");
+		
+		// sort 후 dfs 호출한 것임
+		dfs(v);
 	}
 
 	// 깊이 우선 탐색(DFS)
+	// 1 2 4 3
 	private static void dfs(int node) {
 		visited[node] = true;
-		System.out.print(node + " ");
+		System.out.println("call dfs ----------------------");
+		System.out.print("kuksAnswer: "+ node + " ");
 
+		
 		for (int next : graph.get(node)) {
+			System.out.println("node_num: "+node+"--------------------");
+			System.out.println("graph.get("+node+"): " + graph.get(node));
+			System.out.println("next: " + next);
+			System.out.println("visited["+node+"]: " + visited[node]);
 			if (!visited[next]) {
+				System.out.println("dfs ok?");
 				dfs(next);
+			} else {
+				System.out.println("dfs no~");
 			}
 		}
 	}
 
 	// 너비 우선 탐색(BFS)
 	private static void bfs(int start) {
+		// queue -> 선입선출
 		Queue<Integer> queue = new LinkedList<>();
 		visited[start] = true;
+		
+		
 		queue.offer(start);
 
 		while (!queue.isEmpty()) {

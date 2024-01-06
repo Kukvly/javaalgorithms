@@ -29,7 +29,7 @@ public class B_3944 {
 			int remainder = 0;
 			System.out.println("");
 
-			// B진법 수를 10진법으로 변환하여 (B-1)로 나눈 나머지를 계산
+			// B진법 수를 10진법으로 변환하지 않고도 효과적으로 (B-1)로 나눈 나머지를 계산하는 방법 
 			for (int i = 0; i < d.length(); i++) {
 				remainder = (remainder * b + (d.charAt(i) - '0')) % (b - 1);
 				System.out.println("kuks chk----------------------");

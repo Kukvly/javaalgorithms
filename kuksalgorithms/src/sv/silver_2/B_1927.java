@@ -47,33 +47,23 @@ public class B_1927 {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
-
-		int cnt = 0;
 		
 		PriorityQueue<Integer> xQueue = new PriorityQueue<>();
 
-		int tmp = 0;
+		int x = 0;
 		for (int i=0; i<n; i++) {
-			tmp = Integer.parseInt(br.readLine());
-			xQueue.add(tmp);
-			if(tmp==0) {
-				cnt++;
-//				System.out.println(xQueue.poll());
+			x = Integer.parseInt(br.readLine());
+			if(x==0) {
+				if(xQueue.isEmpty()) {
+					System.out.println(0);
+				} else {
+					System.out.println(xQueue.poll());
+				}
+			} else {
+				xQueue.offer(x);
 			}
 
 		}
-
-		for (int i=0; i<n; i++) {
-//			if(==0) {
-//				
-//			}
-//			xQueue.poll();
-//			System.out.println();
-			System.out.println(xQueue.toArray()[i]);
-		}
-
-		
-		
 	}
 
 }

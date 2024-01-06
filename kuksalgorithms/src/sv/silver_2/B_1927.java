@@ -3,10 +3,7 @@ package sv.silver_2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.PriorityQueue;
 
 /**
  * 
@@ -51,16 +48,31 @@ public class B_1927 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
 
-		List<Integer> xList = new ArrayList<>();
-		List<Integer> x = new LinkedList<>();
-//				int x[] = new int[n];
+		int cnt = 0;
+		
+		PriorityQueue<Integer> xQueue = new PriorityQueue<>();
+
+		int tmp = 0;
 		for (int i=0; i<n; i++) {
-//			x[i] = Integer.parseInt(br.readLine());
-			xList.add(Integer.parseInt(br.readLine()));
-			x.add(xList.get(i));
+			tmp = Integer.parseInt(br.readLine());
+			xQueue.add(tmp);
+			if(tmp==0) {
+				cnt++;
+//				System.out.println(xQueue.poll());
+			}
+
 		}
-//		Collections.sort(xList);
-		System.out.println(x.toString());
+
+		for (int i=0; i<n; i++) {
+//			if(==0) {
+//				
+//			}
+//			xQueue.poll();
+//			System.out.println();
+			System.out.println(xQueue.toArray()[i]);
+		}
+
+		
 		
 	}
 

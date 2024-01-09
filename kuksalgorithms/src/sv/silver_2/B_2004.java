@@ -19,12 +19,15 @@ public class B_2004 {
 		long m = Long.parseLong(input[1]);
 
 		// Count the number of trailing zeros
-		int cnt = countZero(n, m);
+		int cnt = countEndZero(n, m);
 
-		System.out.println("cnt: "+cnt);
+		System.out.println(cnt);
 	}
 
-	public static int countZero(long n, long m) {
+	// n!의 2의 개수 - (m!의 2의 개수 + (n-m)!의 2의 개수)
+	// n!의 5의 개수 - (m!의 5의 개수 + (n-m)!의 5의 개수)
+	
+	public static int countEndZero(long n, long m) {
 		int countOf2 = countTwoFive(n, 2) - countTwoFive(m, 2) - countTwoFive(n - m, 2);
 		int countOf5 = countTwoFive(n, 5) - countTwoFive(m, 5) - countTwoFive(n - m, 5);
 
@@ -37,7 +40,6 @@ public class B_2004 {
 			count += num / twoFive;
 			num /= twoFive;
 		}
-		System.out.println(count);
 		return count;
 	}
 }

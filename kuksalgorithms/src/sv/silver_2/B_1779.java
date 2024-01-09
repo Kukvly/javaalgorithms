@@ -25,23 +25,12 @@ public class B_1779 {
 		int c = Integer.parseInt(input[0]);
 		int a = Integer.parseInt(input[1]);
 
-		String textArrBef[] = new String[c + a];
-		String textArrAft[] = new String[c + a];
+		String textArrBef[] = new String[c];
+		String textArrAft[] = new String[a];
 		
 		Map<String, String> textMap = new HashMap<>();
 		Map<String, String> wordMap = new HashMap<>();
 
-//		for (int i = 0; i < c; i++) {
-//			input = br.readLine().split(" -> ");
-//			textArrBef[i] = input[0].replace("\"", "");
-//			textArrAft[i] = input[1].replace("\"", "");
-//			
-//		}
-//		for (int i = c; i < (c + a); i++) {
-//			input = br.readLine().split(" -> ");
-//			textArrBef[i] = input[0].replace("\"", "");
-//			textArrAft[i] = input[1].replace("\"", "") + " (" + input[0].replace("\"", "") + ")";
-//		}
 		for (int i = 0; i < c; i++) {
 			input = br.readLine().split(" -> ");
 			textMap.put(input[0].replace("\"", ""), input[1].replace("\"", ""));
@@ -50,38 +39,35 @@ public class B_1779 {
 		for (int i = 0; i < a; i++) {
 			input = br.readLine().split(" -> ");
 			textArrBef[i] = input[0].replace("\"", "");
-			textArrAft[i] = input[1].replace("\"", "") + " (" + input[0].replace("\"", "") + ")";
-			wordMap.put(input[0].replace("\"", ""), input[1].replace("\"", "") + " (" + input[0].replace("\"", "") + ")");
+			textArrAft[i] = input[1].replace("\"", "");
+			wordMap.put(input[0].replace("\"", ""), input[1].replace("\"", ""));
 		}
-		// # 조건 필요할 것으로 보임
-		
-//		StringBuilder sb = new StringBuilder();
-//		String s = br.readLine();
-//		StringTokenizer st = new StringTokenizer(s, " ");
-//		while(st.hasMoreTokens()) {
-//			
-//		}
-//		
-		int cnt=0;
-		while (cnt<1) {
-			input = br.readLine().split(" ");
-			for (int i = 0; i < input.length; i++) {
-				for (int j = 0; j < textArrAft.length; j++) {
-					if ((input[i]).equals(textArrBef[j])) {
-						input[i].replace(input[i], textArrAft[j]);
-					}
-				}
-				System.out.print (input[i] + " ");
-			}
-		}
-		
-	}
-	/*
-	public static void changeText(String[] b, String[] a) {
-		for(int j=0; j<b.length; j++) {
-			if(b.to)
-		}
-	}
-	*/
+		int cnt =0;
+		while (cnt<2) {
+            String line = br.readLine().replaceAll("\"", "");
+          
+            if (line.equals("#")) {
+                cnt++;
+            }
 
+            // Process contractions
+            for (Map.Entry<String, String> entry : textMap.entrySet()) {
+                String contraction = entry.getKey();
+                String expansion = entry.getValue();
+
+                line = line.replaceFirst(contraction, expansion);
+          }
+
+            // Process acronyms
+            for (Map.Entry<String, String> entry : wordMap.entrySet()) {
+                String acronym = entry.getKey();
+                String expansion = entry.getValue();
+
+                line = line.replaceFirst("\\b" + acronym + "\\b", expansion + " (" + acronym + ")");
+           }
+            // Check for termination
+
+            System.out.println(line);
+        }
+	}
 }

@@ -22,23 +22,55 @@ public class B_1779 {
 		String input[] = br.readLine().split(" ");
 		int c = Integer.parseInt(input[0]);
 		int a = Integer.parseInt(input[1]);
-
-		String textArr[] = new String[c + a];
-
+		int cnt = 0;
+		String textArrBef[] = new String[c + a];
+		String textArrAft[] = new String[c + a];
 		for (int i = 0; i < c; i++) {
 			input = br.readLine().split(" -> ");
-			textArr[i] = input[0].replace("\"", "");
-//			System.out.println(textArr[i]);
+			textArrBef[i] = input[0].replace("\"", "");
+			textArrAft[i] = input[1].replace("\"", "");
+//			System.out.println(textArrAft[i]);
 		}
 		for (int i = c; i < (c + a); i++) {
 			input = br.readLine().split(" -> ");
-			textArr[i] = input[1].replace("\"", "") + " (" + input[0].replace("\"", "") + ")";
-//			System.out.println(textArr[i]);
+			textArrBef[i] = input[0].replace("\"", "");
+			textArrAft[i] = input[1].replace("\"", "") + " (" + input[0].replace("\"", "") + ")";
+//			System.out.println(textArrAft[i]);
 		}
 
-		for (int i = 0; i < c+a; i++) {
-			System.out.println(textArr[i]);
-		}
+		// # 조건 필요할 것으로 보임
+			input = br.readLine().split(" ");
+			for (int i=0; i<input.length;i++) {
+				for(int j=0; j<textArrAft.length; j++) {
+					if(textArrBef.toString().contains(input[i])) {
+						input[i].replace(textArrBef[j], textArrAft[j]);
+					}
+				}
+				System.out.print(input[i] + " ");
+			}
+//		}
+
+//		for (int i = 0; i < c + a; i++) {
+//			System.out.println(textArr[i]);
+//		}
+		
+		//
+		
+		
+//		StringBuilder sb = new StringBuilder();
+
+//		while(cnt<2) {
+//			String s = br.readLine();
+//			sb.append(s + "\n");
+//			if(s.contains("#")) {
+//				cnt++;
+//			}
+//		}
+
+
+//		System.out.println(sb);
+
+//		System.out.println(sb.length());
 	}
 
 }

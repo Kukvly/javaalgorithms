@@ -9,9 +9,9 @@ public class StringBuilder_sc {
 		int a = sc.nextInt();
 		StringBuilder sb = new StringBuilder();
 		for (int i=0; i<=a; i++) {
-			sb.append(i+"\n");
-			System.out.println("i"+i);
-			System.out.println("sb"+sb);
+			sb.append(i);
+			System.out.println("i_"+i);
+			System.out.println("sb_"+sb);
 		}
 	}
 

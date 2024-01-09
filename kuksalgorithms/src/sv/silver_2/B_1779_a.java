@@ -23,7 +23,7 @@ public class B_1779_a {
         Map<String, String> acronyms = new HashMap<>();
         for (int i = 0; i < numAcronyms; i++) {
             String[] rule = br.readLine().replaceAll("\"", "").split(" -> ");
-            acronyms.put(rule[0], rule[1]);
+            acronyms.put(input[0].replace("\"", ""), input[1].replace("\"", "") + " (" + rule[0].replace("\"", "") + ")");
         }
 
         // Texts

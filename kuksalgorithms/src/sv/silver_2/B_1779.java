@@ -3,9 +3,8 @@ package sv.silver_2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 
@@ -28,17 +27,31 @@ public class B_1779 {
 
 		String textArrBef[] = new String[c + a];
 		String textArrAft[] = new String[c + a];
+		
+		Map<String, String> textMap = new HashMap<>();
+		Map<String, String> wordMap = new HashMap<>();
 
+//		for (int i = 0; i < c; i++) {
+//			input = br.readLine().split(" -> ");
+//			textArrBef[i] = input[0].replace("\"", "");
+//			textArrAft[i] = input[1].replace("\"", "");
+//			
+//		}
+//		for (int i = c; i < (c + a); i++) {
+//			input = br.readLine().split(" -> ");
+//			textArrBef[i] = input[0].replace("\"", "");
+//			textArrAft[i] = input[1].replace("\"", "") + " (" + input[0].replace("\"", "") + ")";
+//		}
 		for (int i = 0; i < c; i++) {
 			input = br.readLine().split(" -> ");
-			textArrBef[i] = input[0].replace("\"", "");
-			textArrAft[i] = input[1].replace("\"", "");
+			textMap.put(input[0].replace("\"", ""), input[1].replace("\"", ""));
 		}
-		for (int i = c; i < (c + a); i++) {
+		
+		for (int i = 0; i < a; i++) {
 			input = br.readLine().split(" -> ");
 			textArrBef[i] = input[0].replace("\"", "");
 			textArrAft[i] = input[1].replace("\"", "") + " (" + input[0].replace("\"", "") + ")";
-//			System.out.println(textArrAft[i]);
+			wordMap.put(input[0].replace("\"", ""), input[1].replace("\"", "") + " (" + input[0].replace("\"", "") + ")");
 		}
 		// # 조건 필요할 것으로 보임
 		

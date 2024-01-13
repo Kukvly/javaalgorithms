@@ -3,6 +3,9 @@ package sv.silver_2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 
@@ -13,7 +16,9 @@ import java.io.InputStreamReader;
  */
 
 public class B_1012 {
-
+	static boolean[] visited; // 방문 여부를 체크하는 배열
+	static ArrayList<ArrayList<Integer>> graph; // 그래프를 표현하는 인접 리스트
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int t = Integer.parseInt(br.readLine());
@@ -40,68 +45,30 @@ public class B_1012 {
 				}
 				System.out.println("");
 			}
-			
-			/*
-			 * 일단 제일 먼저 각 행마다 x=1이 어디서 나오는지를 저장한다.
-			 * 
-			 * 
-			 * 
-			 * 
-			 * 
-			 * */
-			
-				/**
-				 * 1,1 1,2, 2,1 -> 1개만 있어도 1섹터 (1마리)
-				 * 
-				 * 2,2 -> 1마리 or 2마리 -> x x+1 y y+1 
-				 * if((x,y)==1 && (x+1,y+1)==1) or if((x+1,y)==1 && (x.y+1)==1)
-				 * 
-				 * 3,1 -> 가운데만 있으면 1개(=3개다있어도 1개) 양끝에 하나씩이면 2개 
-				 * 
-				 * 
-				 * 밑에줄부터 탐색을 시작한다.
-				 * 0행부터 시작해서 1이 나온 부분 idx 저장
-				 * vegArr[x][y]==1
-				 * 
-				 */
-/*
-			for(int x=0; x<m; x++) {
-				for(int y=0; y<n; y++) {
-					// 탐색이 필요할 것 같
-					if (k == 1) {
-						System.out.println(1);
-					} else {
-						// 꼭짓점
-						// logic1 -> 다 else if 로 바꿀것
-						if ((x == 0 && y == 0)) { // (0,0)
-							if(vegArr[x+1][y]==1 || vegArr[x][y+1]==1) {
-								cnt++;
-							}
-						} else if ((x == (m - 1) && y == (n - 1))) { // (m-1,n-1)
-							if(vegArr[x-1][y]==1 || vegArr[x][y-1]==1) {
-								cnt++;
-							}
-						} else if ((x == (m - 1) && y == 0)) { // (m-1, 0)
-							if(vegArr[x-1][y]==1 || vegArr[x][y+1]==1) {
-								cnt++;
-							}
-						} else if (x == 0 && y == (n - 1)) { // (0, n-1)
-							if(vegArr[x+1][y]==1 || vegArr[x][y-1]==1) {
-								cnt++;
-							}
-						} else if((0<x) && (x<m-1)) {
-							if(x==)
-						} 
-						else if ((0<y) && (y>n-1)) { // 모서리
-						
-							
-						} else { // 일반식
-							
-						}
-				}
 		}
-*/
-		}
+		
+		visited = new boolean[n + 1]; // node number 표현을 위해 visited 배열 사이즈를 n+1로 함
+		graph = new ArrayList<>();
 	}
+	
+	// 너비 우선 탐색(BFS)
+		private static void bfs(int start) {
+			Queue<Integer> queue = new LinkedList<>();
+			visited[start] = true;
+			// 시작점 추가
+			queue.offer(start);
+
+			while (!queue.isEmpty()) {
+				int current = queue.poll();
+				System.out.print(current + " ");
+
+				for (int next : graph.get(current)) {
+					if (!visited[next]) {
+						visited[next] = true;
+						queue.offer(next);
+					}
+				}
+			}
+		}
 
 }

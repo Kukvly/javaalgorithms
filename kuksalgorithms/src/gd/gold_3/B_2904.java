@@ -3,6 +3,11 @@ package gd.gold_3;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
 
 /**
  * 
@@ -23,22 +28,57 @@ public class B_2904 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
 		String input[] = br.readLine().split(" ");
-		int numArr[] = new int[n];
-//		int rtn[] = new int[n-1];
-		numArr[0] = Integer.parseInt(input[0]);
-		for (int i = 1; i < n; i++) {
-			numArr[i] = Integer.parseInt(input[i]);
+		int cntArr[] = new int[n];
+		int rtn=0;
+		int rtnArr[] = new int[n];
+		Queue<Integer> kuksQueue = new LinkedList<>();
+		Map<Integer, Integer> kuksMap = new HashMap<Integer, Integer>();
+		
+		for (int i = 0; i < n; i++) {
+			int x=2;
+			kuksQueue.offer(Integer.parseInt(input[i]));
+			int poll = kuksQueue.poll();
+			for(int j=0; j<poll; j++) {
+				if(x==2) {
+					rtn=gcd(poll, x);
+					System.out.println("if: " + rtn);
+				} else if(x>2) {
+					if(sosu(x)) {
+						rtn = gcd(poll, x);
+					}
+					
+					System.out.println("else: "+ rtn);
+				}
+				x++;
+			}
+			cntArr[i] = x-2;
+			rtnArr[i] = rtn;
+			kuksMap.put(cntArr[i], rtnArr[i]);
 		}
+		
+		Arrays.sort(cntArr);
+		Arrays.sort(rtnArr);
+		
+		System.out.println(cntArr[n-1] + " " + rtnArr[n-1]);
 	}
 
 	/*
 	 * 최대공약수를 계속해서 구한 다음에 sort해서 젤 큰애를 출력하자
 	 */
 
-	public static int maxDiv(int a, int b) {
+	public static int gcd(int a, int b) {
 		if(a%b==0) {
 			return b;
 		}
-		return maxDiv(b, a%b);
+		return gcd(b, a%b);
+	}
+	
+	public static Boolean sosu (int n) {
+		if(n<2) return false;
+		if(n==2) return true;
+		for(int i=0; i<n; i++) {
+			if(n%i==0) return false;
+		}
+		return true;
 	}
 }

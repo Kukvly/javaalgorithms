@@ -34,20 +34,25 @@ public class B_2904 {
 		Queue<Integer> kuksQueue = new LinkedList<>();
 		Map<Integer, Integer> kuksMap = new HashMap<Integer, Integer>();
 		
+//		System.out.println("sosu(3): " + sosu(3));
+		
 		for (int i = 0; i < n; i++) {
 			int x=2;
 			kuksQueue.offer(Integer.parseInt(input[i]));
 			int poll = kuksQueue.poll();
+//			System.out.println("poll: " + poll);
 			for(int j=0; j<poll; j++) {
 				if(x==2) {
 					rtn=gcd(poll, x);
-					System.out.println("if: " + rtn);
+//					System.out.println("if1: " + rtn);
 				} else if(x>2) {
+//					System.out.println("x: " + x);
 					if(sosu(x)) {
 						rtn = gcd(poll, x);
+//						System.out.println("if2: " + rtn);
 					}
 					
-					System.out.println("else: "+ rtn);
+//					System.out.println("else: "+ rtn);
 				}
 				x++;
 			}
@@ -59,7 +64,9 @@ public class B_2904 {
 		Arrays.sort(cntArr);
 		Arrays.sort(rtnArr);
 		
-		System.out.println(cntArr[n-1] + " " + rtnArr[n-1]);
+		System.out.println(cntArr.toString());
+		System.out.println(rtnArr.toString());
+//		System.out.println(cntArr[n-1]  + " " + rtnArr[n-1]);
 	}
 
 	/*
@@ -74,10 +81,12 @@ public class B_2904 {
 	}
 	
 	public static Boolean sosu (int n) {
+		
 		if(n<2) return false;
-		if(n==2) return true;
-		for(int i=0; i<n; i++) {
-			if(n%i==0) return false;
+		for(int i=2; i<=Math.sqrt(n); i++) {
+			if(n%i==0) {
+				return false;
+			}
 		}
 		return true;
 	}

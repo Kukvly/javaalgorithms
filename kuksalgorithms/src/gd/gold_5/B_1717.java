@@ -65,11 +65,11 @@ public class B_1717 {
 		 *  {2, 3} 새로 만들어준다.
 		 *  
 		 */
-		int numArr[] = new int[n+1];
-		
-		for(int i=0; i<n+1; i++) {
-			numArr[i]=i;
-		}
+//		int numArr[] = new int[n+1];
+//		
+//		for(int i=0; i<n+1; i++) {
+//			numArr[i]=i;
+//		}
 		
 		input = br.readLine().split(" ");
 		
@@ -79,6 +79,7 @@ public class B_1717 {
 		numList.add(numMap);
 
 		for (int i=1; i<m+1; i++) {
+			System.out.println("m: " + m);
 			if (i==m) {
 				return;
 			}
@@ -94,26 +95,31 @@ public class B_1717 {
 			
 			
 //			System.out.println("numMap.toString(): " + numMap.toString());
-			
-			
+			int l = numList.size();
 			if(input[0].equals("0")) {
-				for(int j=0; j<numList.size(); j++) {
-					if(numList.get(i-1).containsValue(numMap.get(a))
-							&& !numList.get(i-1).containsValue(numMap.get(b))) {
+				System.out.println("0chk counting: " + (i-1));
+				for(int j=0; j<l; j++) {
+					if(numList.get(j).containsValue(numMap.get(a))
+							&& !numList.get(j).containsValue(numMap.get(b))) {
 						numList.get(j).put(b, b);
-					} else if(!numList.get(i-1).containsValue(numMap.get(a))
-							&& numList.get(i-1).containsValue(numMap.get(b))) {
+						System.out.println("1111");
+					} else if(!numList.get(j).containsValue(numMap.get(a))
+							&& numList.get(j).containsValue(numMap.get(b))) {
 						numList.get(j).put(a, a);
-					} else if (numList.get(i-1).containsValue(numMap.get(a))
-							&& numList.get(i-1).containsValue(numMap.get(b))) {
-						
+						System.out.println("2222");
+					} else if (numList.get(j).containsValue(numMap.get(a))
+							&& numList.get(j).containsValue(numMap.get(b))) {
+						System.out.println("3333");
 					} else {
 						numMap.put(a, a);
 						numMap.put(b, b);
+						System.out.println("4444");
 					}
 					numList.add(numMap);
+					System.out.println("if: " + numList.get(0));
 				}
 			} else if(input[0].equals("1")) {
+				System.out.println("else if: " + numList.get(0));
 				if(elmContain(numList.get(i-1),a,b)) {
 					System.out.println(sayYes[rdIdx]);
 				} else {

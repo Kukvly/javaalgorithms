@@ -3,6 +3,9 @@ package gd.gold_5;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 /**
  * 
@@ -32,12 +35,42 @@ public class B_1717 {
 		int m = Integer.parseInt(input[1]);	// m: 연산 개수
 		
 		int numArr[] = new int[n+1];
+
+		Random rd = new Random();
+		int rdIdx = rd.nextInt(2);
+		
+		String sayYes[] = {"YES", "yes"};
+		
+		String sayNo[] = {"NO", "no"};
+		
+		
+		Map<Integer, Integer> numMap = new HashMap<Integer, Integer>();
 		
 		for (int i=0; i<n+1; i++) {
+			input = br.readLine().split(" ");
 			numArr[i] = i;
+			if(input[0].equals("0")) {
+				
+			} else if(input[0].equals("1")) {
+				int a = Integer.parseInt(input[1]);
+				int b = Integer.parseInt(input[2]);
+				
+				if(elmContain(numMap,a,b)) {
+					System.out.println(sayYes[rdIdx]);
+				} else {
+					System.out.println(sayNo[rdIdx]);
+				}
+			}
 		}
-		
-		numArr[]
 	}
+	
+	public static Boolean elmContain(Map<Integer, Integer> kuksMap, int a, int b) {
+		if(kuksMap.containsValue(a) && kuksMap.containsValue(b)) {
+			return true;
+		} else return false;
+	}
+	
+	
+	
 
 }

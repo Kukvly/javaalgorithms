@@ -37,24 +37,16 @@ public class B_1297 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input[] = br.readLine().split(" ");
 		
-		double d = Double.parseDouble(input[0]); // 대각선 측정값
-		double h = Double.parseDouble(input[1]); // 높이율
-		double w = Double.parseDouble(input[2]); // 넓이율
+		int d = Integer.parseInt(input[0]); // 대각선 길이
+		int h = Integer.parseInt(input[1]); // 높이율
+		int l = Integer.parseInt(input[2]); // 너비율 -> 길이율
 		
-		double k = 0;
-		double l = 0;
+		double k = d/(Math.sqrt((Math.pow(h, 2) + Math.pow(l, 2))));
 		
-		k = Math.sqrt(Math.pow((d/h),2) -  (w * Math.pow((1/h), 4)));
+		double height = (h*k);
+		double length = (l*k);
 		
-		l = Math.sqrt(Math.pow(d,2)-(Math.pow(h, 2)*Math.pow(k, 2)));
-		System.out.println(l);
-		System.out.println(k);
-		
-		double rtnh = (h*k); // 높이: h x k
-		double rtnw = (h*k*l*k);
-		
-		System.out.println(Math.floor(rtnh) + " " + Math.floor(rtnw));
+		System.out.println((int) height + " " + (int) length);
 		
 	}
-
 }

@@ -27,8 +27,13 @@ package sv.silver_1;
  * 장대는 항상 3개
  * 원판만 n개
  * 
- * n=1 -> k=1
- * n=2 부터 로직 돌아감.
+ * 하노이탑 움직임 수 = 2^n - 1
+ * 
+ * BigInteger.ONE: BigInteger 클래스의 상수 1
+ * .shiftLeft(n): 비트를 왼쪽으로 n만큼 이동 -> 이 부분은 2의 n승을 의미
+ * .subtract(BigInteger.ONE): 2의 n승에서 1을 뺀 값을 계산합니다
+ *
+ * 
  * 
  * 
  */
@@ -45,6 +50,7 @@ public class B_1914 {
         int n = Integer.parseInt(br.readLine());
 
         // 2^n - 1이 이동 횟수이므로 BigInteger를 사용
+        // 
         BigInteger moves = BigInteger.ONE.shiftLeft(n).subtract(BigInteger.ONE);
 
         System.out.println(moves);

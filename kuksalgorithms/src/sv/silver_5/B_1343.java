@@ -5,6 +5,8 @@ package sv.silver_5;
  * 
  * X의 개수에서 4를 나눴을 때 나머지가 2이면 몫의 개수만큼 "AAAA" 출력 그리고 맨마지막에만 "BB"붙여줌
  * 
+ * X의 개수에서 4를 나눴을 때 나머지가 0이면 몫의 개수만큼 "AAAA"만 출력
+ * 
  * .이 오는건 상관 없음
  * 
  */
@@ -12,7 +14,6 @@ package sv.silver_5;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Map;
 
 public class B_1343 {
 

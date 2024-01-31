@@ -23,19 +23,45 @@ package sv.silver_1;
  * 이는 A번째 탑의 가장 위에 있는 원판을 B번째 탑의 가장 위로 옮긴다는 뜻이다.
  * N이 20보다 큰 경우에는 과정은 출력할 필요가 없다.
  * 
+ * 
+ * 장대는 항상 3개
+ * 원판만 n개
+ * 
+ * n=1 -> k=1
+ * n=2 부터 로직 돌아감.
+ * 
+ * 
  */
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 
 public class B_1914 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	public static void main(String[] args) throws IOException{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int n = Integer.parseInt(br.readLine());
-		
-		
-	}
+        int n = Integer.parseInt(br.readLine());
 
+        // 2^n - 1이 이동 횟수이므로 BigInteger를 사용
+        BigInteger moves = BigInteger.ONE.shiftLeft(n).subtract(BigInteger.ONE);
+
+        System.out.println(moves);
+
+        if (n <= 20) {
+            hanoi(n, 1, 2, 3);
+        }
+    }
+
+    // 하노이 탑 이동 순서 출력 함수
+    private static void hanoi(int n, int from, int via, int to) {
+        if (n == 1) {
+            System.out.println(from + " " + to);
+        } else {
+            hanoi(n - 1, from, to, via);
+            System.out.println(from + " " + to);
+            hanoi(n - 1, via, from, to);
+        }
+    }
 }

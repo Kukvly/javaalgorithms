@@ -16,40 +16,64 @@ import java.util.Map;
 
 public class B_1343 {
 
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String patternA = "AAAA";
 		String patternB = "BB";
-		
-		String input= br.readLine();
+
+		String input = br.readLine();
 		char rtn[] = input.toCharArray();
 		int xCnt = 0;
+
+		StringBuffer sb = new StringBuffer();
+
+		String rtnStr = "";
 //		int dCnt = 0;
-		for(int i=0; i<rtn.length; i++) {
-			if(rtn[i]=='X') {
-				xCnt ++;
-			} else if(rtn[i]=='.' || i==(rtn.length-1)) {
-				if(xCnt%2==1) {
+		for (int i = 0; i < rtn.length; i++) {
+			if (rtn[i] == 'X') {
+				xCnt++;
+				if (i == rtn.length - 1) {
+					if (xCnt % 2 == 1) {
+						sb.delete(0, sb.length());
+						System.out.println(-1);
+						return;
+					} else if (xCnt % 4 == 0) {
+						for (int j = 0; j < (xCnt / 4); j++) {
+							sb.append(patternA);
+						}
+					} else if (xCnt % 4 == 2) {
+						for (int j = 0; j < (xCnt / 4); j++) {
+							sb.append(patternA);
+						}
+
+						sb.append(patternB);
+
+					}
+
+				}
+			} else if (rtn[i] == '.') {
+				if (xCnt % 2 == 1) {
+					sb.delete(0, sb.length());
 					System.out.println(-1);
 					return;
-				} else if(xCnt%4==0){
-					for(int j=0; j<(xCnt/4); j++) {
-						System.out.print(patternA);
+				} else if (xCnt % 4 == 0) {
+					for (int j = 0; j < (xCnt / 4); j++) {
+						sb.append(patternA);
 					}
-				} else if(xCnt%4==2) {
-					for(int j=0; j<(xCnt/4); j++) {
-						System.out.print(patternA);
+				} else if (xCnt % 4 == 2) {
+					for (int j = 0; j < (xCnt / 4); j++) {
+						sb.append(patternA);
 					}
-					
-					System.out.print(patternB);
-					
+
+					sb.append(patternB);
+
 				}
 				xCnt = 0;
-				System.out.print(".");
+				sb.append(".");
 			}
-		
-			
-//			System.out.println("xCnt: " + xCnt);
 		}
+		rtnStr = sb.toString();
+
+		System.out.println(rtnStr);
 	}
 }

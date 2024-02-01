@@ -1,12 +1,5 @@
 package sv.silver_2;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
  * 
  * @author kukvly 유기농 배추 한 배추의 상하좌우 네 방향에 다른 배추가 위치한 경우 -> 서로 인접해있는 것 T: 테스트 케이스
@@ -15,60 +8,59 @@ import java.util.Queue;
  *         두 배추의 위치가 같은 경우는 없다.
  */
 
+import java.util.Scanner;
+
 public class B_1012 {
-	static boolean[] visited; // 방문 여부를 체크하는 배열
-	static ArrayList<ArrayList<Integer>> graph; // 그래프를 표현하는 인접 리스트
-	
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int t = Integer.parseInt(br.readLine());
-		String input[] = br.readLine().split(" ");
+    static int[][] farm;
+    static int M, N;
 
-		for (int i = 0; i < t; i++) {
-			int m = Integer.parseInt(input[0]);
-			int n = Integer.parseInt(input[1]);
-			int k = Integer.parseInt(input[2]);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();  // 테스트 케이스 수
 
-			int vegArr[][] = new int[m][n];
-			int cnt = 0;
+        for (int t = 0; t < T; t++) {
+            M = sc.nextInt();  // 가로
+            N = sc.nextInt();  // 세로
+            int K = sc.nextInt();  // 배추 개수
+            farm = new int[N][M];
 
-			for (int j = 0; j < k; j++) {
-				input = br.readLine().split(" ");
-				int x = Integer.parseInt(input[0]);
-				int y = Integer.parseInt(input[1]);
-				vegArr[x][y] =1;
-			}
-				
-			for (int x=0; x<m; x++) {
-				for(int y=0; y<n; y++) {
-					System.out.print(vegArr[x][y] + " ");
-				}
-				System.out.println("");
-			}
-		}
-		
-		visited = new boolean[n + 1]; // node number 표현을 위해 visited 배열 사이즈를 n+1로 함
-		graph = new ArrayList<>();
-	}
-	
-	// 너비 우선 탐색(BFS)
-		private static void bfs(int start) {
-			Queue<Integer> queue = new LinkedList<>();
-			visited[start] = true;
-			// 시작점 추가
-			queue.offer(start);
+            for (int i = 0; i < K; i++) {
+                int X = sc.nextInt();
+                int Y = sc.nextInt();
+                farm[Y][X] = 1;
+            }
 
-			while (!queue.isEmpty()) {
-				int current = queue.poll();
-				System.out.print(current + " ");
+            int result = countWorms();
+            System.out.println(result);
+        }
+    }
 
-				for (int next : graph.get(current)) {
-					if (!visited[next]) {
-						visited[next] = true;
-						queue.offer(next);
-					}
-				}
-			}
-		}
+    static void dfs(int x, int y) {
+        if (x < 0 || x >= N || y < 0 || y >= M) {
+            return;
+        }
 
+        if (farm[x][y] == 1) {
+            farm[x][y] = 0;
+
+            // 상, 하, 좌, 우 방향으로 DFS 호출
+            dfs(x + 1, y);
+            dfs(x - 1, y);
+            dfs(x, y + 1);
+            dfs(x, y - 1);
+        }
+    }
+
+    static int countWorms() {
+        int count = 0;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                if (farm[i][j] == 1) {
+                    dfs(i, j);
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 }

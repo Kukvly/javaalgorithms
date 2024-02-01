@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
  * 10 -> 9 -> 3 -> 1
  */
 
+// 추가 복습 필요
 public class B_1463 {
 
 	public static void main(String[] args) throws IOException{

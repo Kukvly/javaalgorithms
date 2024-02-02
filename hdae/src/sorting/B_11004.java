@@ -27,6 +27,8 @@ public class B_11004 {
 		Collections.sort(numList);
 		
 		System.out.println(numList.get(k-1));
+		
+		
 	}
 
 }

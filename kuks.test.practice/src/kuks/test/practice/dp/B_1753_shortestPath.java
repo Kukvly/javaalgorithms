@@ -1,8 +1,10 @@
 package kuks.test.practice.dp;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 /**
  * 
@@ -41,8 +43,12 @@ public class B_1753_shortestPath {
 
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
 		String input[] = br.readLine().split(" ");
+		
 		int v = Integer.parseInt(input[0]);
+
 		int e = Integer.parseInt(input[1]);
 		
 		int k = Integer.parseInt(br.readLine());
@@ -50,6 +56,8 @@ public class B_1753_shortestPath {
 		for(int i=0; i<e; i++) {
 			input = br.readLine().split(" ");
 		}
+		
+		bw.close();
 		
 	}
 

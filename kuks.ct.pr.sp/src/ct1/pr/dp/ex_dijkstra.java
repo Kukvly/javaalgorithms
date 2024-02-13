@@ -1,4 +1,4 @@
-package kuks.test.practice.dp;
+package ct1.pr.dp;
 
 // 다익스트라 알고리즘은 DP를 이용했다는 점에서 간결하다.
 // O(N^2)의 시간 복잡도

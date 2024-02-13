@@ -1,4 +1,4 @@
-package kuks.test.practice.dp;
+package ct1.pr.dp;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

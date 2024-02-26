@@ -17,6 +17,9 @@ public class B_1213_a {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String str = br.readLine();
+		
+		System.out.println(str);
+		
 		Map<Character, Integer> charCount = new HashMap<>();
 		// 각 문자의 개수를 세기
 		for (char c : str.toCharArray()) {

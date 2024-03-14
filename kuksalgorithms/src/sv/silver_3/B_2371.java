@@ -28,8 +28,7 @@ import java.util.List;
 public class B_2371 {
 
 	static List<Object> paramList = new ArrayList<Object>();
-	
-	@SuppressWarnings("null")
+
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
@@ -40,10 +39,18 @@ public class B_2371 {
 				arr[j] = Long.parseLong(input[j]);
 			}
 			paramList.add(arr);
+			printArray((long[]) paramList.get(i));
+			System.out.println();
 		}
-		
-		for(int i=0; i<paramList.size(); i++) {
-			System.out.println(paramList.get(i));
+
+	}
+	
+	static void printArray(long[] arr) {
+		for(int i=0; i<arr.length; i++) {
+			System.out.print(arr[i]);
+			if(i != arr.length -1) {
+				System.out.print(" ");
+			}
 		}
 	}
 

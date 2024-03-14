@@ -19,8 +19,8 @@ import java.util.List;
  * 1 <= 마을 위치 <= 1,000,000
  * 
  * input
- * 5				// 마을 수
- * 1 3 5 8 10		// 마을 위치
+ * 5				// 마을 수 n
+ * 1 3 5 8 10		// 마을 위치 posList
  */
 
 public class village {
@@ -37,14 +37,31 @@ public class village {
 		String input[] = br.readLine().split(" ");
 		posList.add(Integer.parseInt(input[0]));
 		for(int i=1; i<n; i++) {
-			posList.add(Integer.parseInt(input[i]));
-			distList.add(posList.get(i) - posList.get(i-1));
-			pArr[0] = posList.get(i-1);
-			pArr[1] = posList.get(i);
-			memList.add(pArr);
+			posList.add(Integer.parseInt(input[i])); 			// 수직선 기본 위치 저장
+			distList.add(posList.get(i) - posList.get(i-1));	// x좌표 간 차이 저장
+			pArr[0] = posList.get(i-1);							// 선위치
+			pArr[1] = posList.get(i);							// 후위치
+			memList.add(pArr);									// 선위치와 후위치를 좌표화 시킨 배열을 리스트에 저장
 			System.out.println("memList: " + memList.get(i-1));
 		}
 		
 	}
+	
+//	public int comb(int a, int b) {
+//		int rtn = 0;
+//		for(int i=a; i>b; i--) {
+//			a *= (a-1);
+//		}
+//		rtn = (a/factorial(b));
+//		return rtn;
+//	}
+//	
+//	public int factorial(int n) {
+//		for(int i=n; i>1; i--) {
+//			n *= (n-1);
+//		}
+//		
+//		return n;
+//	}
 
 }

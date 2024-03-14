@@ -23,7 +23,8 @@ public class B_18251 {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine()) + 1;
-		int k = getK(n);
+//		int k = getK(n);
+		int k = 0;
 		
 		int wArr[] = new int[n];
 		ArrayList<Integer>[] depth = new ArrayList[k];

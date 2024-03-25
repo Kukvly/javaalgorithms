@@ -29,20 +29,32 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class B_14501 {
-	public static int n, p, t;
+	public static int n;
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		n = Integer.parseInt(br.readLine());
 		
-		int rtn[][] = new int[n][2];
-		for (int i=0; i<n; i++) {
+		int t[] = new int[n+1];
+		int p[] = new int[n+1];
+		int dp[] = new int[n+2];
+		
+		for (int i=1; i<=n; i++) {
 			String input[] = br.readLine().split(" ");			
-			p = Integer.parseInt(input[0]);
-			t = Integer.parseInt(input[1]);
-			rtn[i][0] = p;
-			rtn[i][1] = t;
+			t[i] = Integer.parseInt(input[0]);
+			p[i] = Integer.parseInt(input[1]);
 		}
+		
+		for (int i=n; i>=1; i--) {
+			int next = i + t[i];
+			if(next <= n+1) {
+				dp[i] = Math.max(p[i]+dp[next],dp[i+1]);
+			}else {
+				dp[i] = dp[i+1];
+			}
+		}
+
+		System.out.println(dp[1]);
 		
 	}
 

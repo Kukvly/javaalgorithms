@@ -27,22 +27,32 @@ public class B_12852 {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
-		int cnt = 0;
-		int dp;
 		
-		while(n>1) {
-			cnt++;
-			if(n%3==0) {
-				n = n/3;
-			} else if(n%2==0) {
-				n = n/2;
-			} else {
-				n--;
-			}	
+		int dp[] = new int[n+1];
+		int before[] = new int[n+1];
+		
+		for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + 1;
+            before[i] = i - 1;
+            
+            if (i % 2 == 0 && dp[i] > dp[i / 2] + 1) {
+                dp[i] = dp[i / 2] + 1;
+                before[i] = i / 2;
+            }
+            
+            if (i%3==0 && dp[i] > dp[i/3] + 1) {
+            	dp[i] = dp[i/3] + 1;
+            	before[i] = i/3;
+            }
 		}
-			
 		
-		
+		System.out.println(dp[n]);
+		while(n!=0) {
+			System.out.print(n + " ");
+			n = before[n];
+		}
 	}
+	
+	
 
 }

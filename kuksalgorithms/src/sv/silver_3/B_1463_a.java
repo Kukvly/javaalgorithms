@@ -1,5 +1,9 @@
 package sv.silver_3;
 
+/**
+ * dp[i]: i를 1로 만들기 위해 필요한 최소 연산 수
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,12 +24,10 @@ public class B_1463_a {
             
             if (i % 2 == 0) {
                 dp[i] = Math.min(dp[i], dp[i / 2] + 1);  // 2로 나눈 경우
-                System.out.println(i+": " + dp[i]+"----------2");
             }
 
             if (i % 3 == 0) {
                 dp[i] = Math.min(dp[i], dp[i / 3] + 1);  // 3으로 나눈 경우
-                System.out.println(i+": " + dp[i]+"----------3");
             }
         }
 

@@ -20,14 +20,34 @@ public class B_1149 {
 		
 		int n = Integer.parseInt(br.readLine());
 	
-		int cost[][] = new int [n][3];
+		int cost[][] = new int [n+1][4];
 		
-		for (int i=0; i<n; i++) {
+		for (int i=1; i<=n; i++) {
 			String input[] = br.readLine().split(" ");
-			for (int j=0; j<3; j++) {
-				cost[i][j] = Integer.parseInt(input[j]);
+			for (int j=1; j<=3; j++) {
+				cost[i][j] = Integer.parseInt(input[j-1]);
 			}
 		}
+		
+		
+		int dp[][] = new int[n+1][4];
+		dp[1][1] = cost[1][1];
+		dp[1][2] = cost[1][2];
+		dp[1][3] = cost[1][3];
+		
+		for (int i=2; i<=n; i++) {
+			dp[i][1] = Math.min(dp[i-1][2], dp[i-1][3]) + cost[i][1];
+			dp[i][2] = Math.min(dp[i-1][1], dp[i-1][3]) + cost[i][2];
+			dp[i][3] = Math.min(dp[i-1][1], dp[i-1][2]) + cost[i][3];
+		}
+		
+		int rtn = Math.min(dp[n][1], Math.min(dp[n][2], dp[n][3]));
+		
+		System.out.println(rtn);
+		
+		
+		
+		
 		
 		
 	}

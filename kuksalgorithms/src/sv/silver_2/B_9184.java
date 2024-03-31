@@ -11,17 +11,19 @@ public class B_9184 {
 	
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		while(true) {
 			String input[] = br.readLine().split(" ");
-			if(input[0].equals("-1") && input[1].equals("-1") && input[2].equals("-1")) {
-				break;
-			}
+
 			int a = Integer.parseInt(input[0]);
 			int b = Integer.parseInt(input[1]);
 			int c = Integer.parseInt(input[2]);
+		
+			if(a==-1 && b==-1 && c==-1) {
+				break;
+			}
 			
-			System.out.println("w("+ a + ", " + b + ", " + c + ") = " + w(a,b,c));	 
+			System.out.println("w("+ a + ", " + b + ", " + c + ") = " + w(a,b,c));
 		}
 		
 	}
@@ -33,7 +35,9 @@ public class B_9184 {
 		if(a>20 || b>20 || c>20) {
 			return w(20, 20, 20);
 		} 
-		if(dp[a][b][c] != 0) return dp[a][b][c];
+		if(dp[a][b][c] != 0) {
+			return dp[a][b][c];
+		}
 		
 		if(a<b && b<c) {
 			return dp[a][b][c] = (w(a, b, c-1) + w(a, b-1, c-1) - w(a, b-1, c));

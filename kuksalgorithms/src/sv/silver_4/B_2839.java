@@ -27,6 +27,7 @@ public class B_2839 {
 		int rtn = sugar(n);
 		System.out.println(rtn);
 	}
+	
 	public static int sugar(int n) {
 		int cnt = 0;
 		

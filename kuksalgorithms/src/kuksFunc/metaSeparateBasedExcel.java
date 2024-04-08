@@ -6,38 +6,13 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class metaSeparate {
+public class metaSeparateBasedExcel {
 
 	public static void main(String[] args) throws IOException {
 		List<String> kuksList = new ArrayList<String>();
-		kuksList.add("병원");
-		kuksList.add("명");
-		kuksList.add("구분");
-		kuksList.add("코드");
-		kuksList.add("종별");
-		kuksList.add("모집자");
-		kuksList.add("인사");
-		kuksList.add("번호");
-		kuksList.add("채널");
-		kuksList.add("구분");
-		kuksList.add("코드1");
-		kuksList.add("코드2");
-		kuksList.add("피보험자");
-		kuksList.add("고객");
-		kuksList.add("치료");
-		kuksList.add("시작");
-		kuksList.add("종료");
-		kuksList.add("일자");
-		kuksList.add("지급");
-		kuksList.add("청구");
-		kuksList.add("산출");
-		kuksList.add("보험");
-		kuksList.add("금액"); // AM
-		kuksList.add("금"); // AM
-		kuksList.add("면책");
-		kuksList.add("결정");
-		kuksList.add("마감");
-		kuksList.add("월");
+
+		
+		
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String paramArr[] = new String[10];

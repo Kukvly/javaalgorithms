@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class metaSeperate3 {
+public class metaSeparate3 {
 
     public static void main(String[] args) throws IOException {
         List<String> kuksList = new ArrayList<String>();

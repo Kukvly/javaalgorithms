@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class metaSeperate2 {
+public class metaSeparate2 {
 
 	public static void main(String[] args) throws IOException {
 		Map<String, String> kuksMap = new HashMap<String, String>();

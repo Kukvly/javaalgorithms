@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class metaSeperate {
+public class metaSeparate {
 
 	 public static void main(String[] args) throws IOException{
 	      Map<String, String> kuksMap = new HashMap<String, String>(); 

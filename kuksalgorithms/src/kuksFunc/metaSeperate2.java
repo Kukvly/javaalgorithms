@@ -89,17 +89,18 @@ public class metaSeperate2 {
 			System.out.print(token + "/");
 		}
 		
+		/*
 		
 		System.out.println();
-		System.out.println("################################################");
-		System.out.println("#######  ########  ########  #######  ##########");
-		System.out.println("#########  ########  ########  #######  ########");
-		System.out.println("#######  ########  ########  #######  ##########");
-		System.out.println("################################################");
+		System.out.println("#################################################");
+		System.out.println("#######  ########  ########  ########  ##########");
+		System.out.println("#########  ########  ########  ########  ########");
+		System.out.println("#######  ########  ########  ########  ##########");
+		System.out.println("#################################################");
 		
 		// kuksList
-		String param = br.readLine();
-
+//		String param = br.readLine();
+		*/
 	}
 
 }

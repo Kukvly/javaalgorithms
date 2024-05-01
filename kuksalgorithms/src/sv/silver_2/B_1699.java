@@ -3,53 +3,23 @@ package sv.silver_2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class B_1699 {
-	
-	public int dp[] = new int [100000];
-	public static int knum = 0;
-	public static int cnt = 0;
-	
-	List<Integer> kuksList = new ArrayList<Integer>();
 	
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
-//		int tmpSqrt = (int) Math.sqrt(n);
-//		int tmpPow = (int) Math.pow(tmpSqrt, 2);
-//		System.out.println(tmpSqrt);
-//		System.out.println(tmpPow);
 		
-		if(n>3) {
-			kuks(n);
-		} else {
-			cnt = n;
+		int dp[] = new int[n+1];
+
+		for (int i=1; i<=n; i++) {
+			dp[i] = i;
+			for(int j=1; j*j<=i; j++) {
+				dp[i] = Math.min(dp[i], dp[i-j*j] + 1);
+			}
 		}
 		
-		
-		System.out.println(cnt);
-		
-	}
-	
-	// n: 11
-	public static void kuks(int n) {
-		int tmpSqrt = (int) Math.sqrt(n);	// 34
-		int tmpPow = (int) Math.pow(tmpSqrt, 2); // 3^2
-		
-		knum = n - tmpPow;
-		if(knum == 0) {
-			cnt++;
-		} else {
-			cnt++;
-			if(knum>3) {
-				kuks(knum);	
-			} else {
-				cnt += knum;
-			}	
-		}
-		
+		System.out.println(dp[n]);
 		
 	}
 

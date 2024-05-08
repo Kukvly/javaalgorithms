@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * 
@@ -39,12 +40,13 @@ import java.util.ArrayList;
 
 
 
-public class B_1260 {
+public class B_1260_b {
 
 	static int n, m, v;
 	static boolean[] visited;
+	static LinkedList<Integer>[] graph;
 	
-	static ArrayList<ArrayList<Integer>> graph;
+//	static ArrayList<ArrayList<Integer>> graph;
 	
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -54,11 +56,7 @@ public class B_1260 {
 		v = Integer.parseInt(input[2]);
 
 		visited = new boolean [n+1];
-		graph = new ArrayList<>();
 		
-		for (int i=0; i<m; i++) {
-			graph.add(new ArrayList<Integer>());
-		}
 	
 		
 	}

@@ -26,6 +26,8 @@ import java.util.Queue;
  *
  */
 
+// 2024.05.08 수요일 -> 윤국 선택 해
+
 public class B_1260_d {
 
 	static int n, m, v; // 정점의 개수 N, 간선의 개수 M, 시작 정점 V
@@ -58,34 +60,52 @@ public class B_1260_d {
 			
 			arr[a][b] = arr[b][a] = 1;
 		}
+		
+		System.out.println("#########################");
+		
+		for (int i=1; i<=n; i++) {
+			for (int j=1; j<=n; j++) {
+				System.out.print(arr[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("#########################");
+		
 		dfs(v);
 		sb.append("\n");
+		
+		// bfs를 하기 위해 방문 초기화
 		visited = new boolean[n+1];
 		
 		bfs(v);
 		System.out.println(sb);
 	}
 	
+	// 재귀
 	public static void dfs(int start) {
 		visited[start] = true;
 		sb.append(start + " ");
 		
 		for (int i=1; i<= n; i++) {
-			if(arr[start][i] == 1 && !visited[i])
+			if(arr[start][i] == 1 && visited[i]==false)
 				dfs(i);
 		}
 	}
 	
+	// queue
 	public static void bfs(int start) {
-		q.add(start);
-		visited[start] = true;
+		q.add(start); // 시작 정점 추가
+		visited[start] = true; // 시작 정점 방문했으니 true
 		
+		// q가 빌 때까지 (= 탐색 완료까지)
 		while(!q.isEmpty()) {
-			start = q.poll();
+			
+			start = q.poll(); // q 하나씩 꺼내서 돌림
 			sb.append(start + " ");
 			
 			for (int i=1; i<=n; i++) {
-				if(arr[start][i]==1 && !visited[i]) {
+				if(arr[start][i]==1 && visited[i]==false) {
 					q.add(i);
 					visited[i] = true;
 				}

@@ -54,9 +54,8 @@ public class B_2606 {
 		}
 		
 		dfs(1);
-//		n-=cnt;
+
 		System.out.println(cnt-1);
-//		System.out.println(sb);
 	}
 	
 	public static void dfs(int start) {

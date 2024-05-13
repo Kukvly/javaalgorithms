@@ -3,7 +3,9 @@ package sv.silver_1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -20,12 +22,15 @@ public class B_2178 {
 	static boolean visited[][];
 	static int[] dx = { -1, 1, 0, 0 };
 	static int[] dy = { 0, 0, -1, 1 };
-
+	
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input[] = br.readLine().split(" ");
 		n = Integer.parseInt(input[0]);
 		m = Integer.parseInt(input[1]);
+		
+		
 		
 		arr = new int[n][m];
 		visited = new boolean[n][m];
@@ -63,6 +68,7 @@ public class B_2178 {
 					arr[nx][ny] = arr[cx][cy] + 1;
 				}
 			}
+			
 		}
 	}
 

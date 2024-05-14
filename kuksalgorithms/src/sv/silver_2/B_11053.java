@@ -8,17 +8,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class B_11053 {
-	static int n,cnt;
+	static int n;
 	static int arr[];
-
-	static List<Integer> kuksList;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		n = Integer.parseInt(br.readLine());
-		cnt = 0;
-		
-		kuksList = new ArrayList<>();
 		int dp[] = new int [n];
 		arr = new int[n];
 		String input[] = br.readLine().split(" ");

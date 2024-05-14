@@ -11,7 +11,7 @@ public class B_1912 {
 	
 	static int arr[], dp[];
 	static int n;
-	static List<Integer> kuksList;
+
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
 		
@@ -21,24 +21,20 @@ public class B_1912 {
 		arr = new int [n];
 		dp  = new int [n];
 		
-		kuksList = new ArrayList<>();
-		
 		for (int i=0; i<n; i++) {
 			arr[i] = Integer.parseInt(input[i]);
 		}
 		
+		dp[0] = arr[0];
+		int maxSum = dp[0];
 		
-		for(int i=0; i<n-1; i++) {
-			for(int j=i+1; j<n; j++) {
-				if(arr[i]<arr[j]) {
-					dp[i] = Math.max(dp[i], dp[i] + arr[j]);
-				}
-				
-			}
-			kuksList.add(dp[i]);
+		
+		for(int i=1; i<n; i++) {
+			dp[i] = Math.max(arr[i], dp[i-1]+arr[i]);
+			maxSum = Math.max(maxSum, dp[i]);
 		}
-		Collections.sort(kuksList);
-		System.out.println(kuksList.get(kuksList.size()-1));
+		
+		System.out.println(maxSum);
 	}
 
 }

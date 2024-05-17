@@ -35,33 +35,29 @@ public class B_14501 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		n = Integer.parseInt(br.readLine());
+		int [] t = new int [n+1];
+		int [] p = new int [n+1];
+		int [] dp = new int [n+2];
 		
-		int t[] = new int[n+1];
-		int p[] = new int[n+1];
-		int dp[] = new int[n+2];
-		
-		for (int i=1; i<=n; i++) {
-			String input[] = br.readLine().split(" ");			
+		for(int i=1; i<=n; i++) {
+			String input[] = br.readLine().split(" ");
 			t[i] = Integer.parseInt(input[0]);
 			p[i] = Integer.parseInt(input[1]);
 		}
 		
-		for (int i=n; i>=1; i--) {
+		// p[i]: 현재 상담에서 얻을 수 있는 이익
+		// dp[next]: 다음 상담 후 얻을 수 있는 최대 이익
+		
+		for(int i=n; i>=1; i++) {
 			int next = i + t[i];
-			if(next <= n+1) {
-				dp[i] = Math.max(p[i]+dp[next],dp[i+1]);
-			}else {
+			if(next<=n+1) {
+				dp[i] = Math.max(p[i]+dp[next], dp[i+1]);
+			} else {
 				dp[i] = dp[i+1];
 			}
+			
 		}
-		System.out.println(dp[1]);	
+		
+		System.out.println(dp[1]);
 	}
 }
-
-/*
- * p[i] + dp[next]는 현재 상담을 선택했을 때 얻을 수 있는 이익(p[i])과 
- * 다음 상담이 끝난 후에 얻을 수 있는 최대 이익(dp[next])을 합한 값이다. 
- * 
- * 만약 다음 상담이 불가능하거나, 현재 상담을 선택하지 않는 것이 더 이익이라면
- * (dp[next] <= dp[i + 1]), 현재 상담을 선택하지 않고 다음 상담을 선택한다
- * */

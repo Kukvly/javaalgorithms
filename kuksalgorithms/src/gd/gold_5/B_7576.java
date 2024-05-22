@@ -7,6 +7,8 @@ package gd.gold_5;
  * 
  * 2 <= m,n >= 1,000
  * 
+ * 탐색의 대표적인 유형 중 하나
+ * 
  */
 
 import java.io.BufferedReader;
@@ -18,7 +20,6 @@ import java.util.Queue;
 public class B_7576 {
 
 	static int m, n, days;
-//	static List<List<Integer>> kuksList;
 	static int arr[][];
 	static int dx[] = { 1, 0, -1, 0 };
 	static int dy[] = { 0, 1, 0, -1 };
@@ -47,6 +48,9 @@ public class B_7576 {
 			}
 		}
 		
+		// 첫 번째 탐색할 때부터 1이 카운트 됨을 방지하기 위함
+		// 0으로 한 후에 출력시 days -1 를 해줘도 됨
+		// 시작점이 1이 되면 안되기 때문 (0에서 시작해야지)
 		days = -1;
 		
 		int rtn = bfs();
@@ -55,9 +59,6 @@ public class B_7576 {
 	}
 
 	static int bfs() {
-		// 첫 번째 탐색할 때부터 1이 카운트 됨을 방지하기 위함
-		// 0으로 한 후에 출력시 days -1 를 해줘도 됨
-
 		while (!q.isEmpty()) {
 			int size = q.size();
 

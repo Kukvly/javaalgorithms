@@ -18,18 +18,19 @@ public class Prac_1 {
     // 상하좌우 이동을 위한 좌표 변화
     static int[] dx = {-1, 1, 0, 0}; // 위, 아래, 왼쪽, 오른쪽
     static int[] dy = {0, 0, -1, 1};
-    static int n;
-
+    static int n, m, fruits = 0;
+    static int arr[][];
+    static int friends[][];
+    static boolean visited[][];
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] input = br.readLine().split(" ");
         n = Integer.parseInt(input[0]); // 배열 크기
-        int m = Integer.parseInt(input[1]); // 친구 수
+        m = Integer.parseInt(input[1]); // 친구 수
 
-        int[][] arr = new int[n + 1][n + 1]; // 열매 수 정보
-        boolean[][] visited = new boolean[n + 1][n + 1]; // 중복 수확 방지
-
-        int fruits = 0; // 열매 총 수확량
+        arr = new int[n + 1][n + 1]; // 열매 수 정보
+        visited = new boolean[n + 1][n + 1]; // 중복 수확 방지
+        friends = new int[m][2]; // 친구들의 시작 위치
 
         // 열매 정보 입력
         for (int i = 1; i <= n; i++) {
@@ -40,51 +41,49 @@ public class Prac_1 {
         }
 
         // 친구별 수확 작업 처리
-        for (int t = 1; t <= m; t++) {
+        for (int t = 0; t < m; t++) {
             input = br.readLine().split(" ");
             int x = Integer.parseInt(input[0]); // 시작 좌표 x
             int y = Integer.parseInt(input[1]); // 시작 좌표 y
 
+            friends[t][0] = x;
+            friends[t][1] = y;
+            
+            
             // 현재 위치에서 열매 수확
             fruits += arr[x][y];
             visited[x][y] = true;
 
-            // 가장 큰 열매로 이동하여 수확
-            while (true) {
-                int maxFruit = 0;
-                int nextX = -1, nextY = -1;
-
-                // 상하좌우에서 가장 큰 열매가 있는 곳을 찾음
-                for (int d = 0; d < 4; d++) {
-                    int nx = x + dx[d];
-                    int ny = y + dy[d];
-
-                    if (isInArr(nx, ny) && !visited[nx][ny] && arr[nx][ny] > maxFruit) {
-                        maxFruit = arr[nx][ny];
-                        nextX = nx;
-                        nextY = ny;
-                    }
-                }
-
-                // 더 이상 수확할 곳이 없으면 종료
-                if (nextX == -1 && nextY == -1) {
-                    break;
-                }
-
-                // 다음 위치로 이동하여 열매 수확
-                x = nextX;
-                y = nextY;
-                fruits += arr[x][y];
-                visited[x][y] = true;
-            }
         }
-
-        // 최종 수확량 출력
+        // 첫 번째 친구부터 수확 시작 (DFS)
+        dfs(friends[0][0], friends[0][1], 0, 0, fruits);
+            
+     // 최종 수확량 출력
         System.out.println(fruits);
     }
-
-    // 배열 범위 내에 있는지 확인하는 함수
-    static boolean isInArr(int x, int y) {
-        return x >= 1 && x <= n && y >= 1 && y <= n;
+    
+    public static void dfs(int x, int y, int fCnt, int time, int sum) {
+    	fruits = Math.max(fruits, sum);
+    	
+    	// 한 친구가 세 번 이동을 하면 다음 친구로 이동
+    	if(time==3) {
+    		if(fCnt + 1 < m) {
+    			dfs(friends[fCnt+1][0], friends[fCnt+1][1], fCnt+1, 0, sum);
+    		}
+    	} else {
+    		for(int i=0; i<4; i++) {
+    			int nx = x + dx[i];
+    			int ny = y + dy[i];
+    			
+    			// 배열 범위 내에 있고 아직 방문하지 않았다면
+    			if(nx>0 && nx<=n && ny>0 && ny<= n && !visited[nx][ny]) {
+    				visited[nx][ny] = true;
+    				dfs(nx, ny, fCnt, time+1, sum+arr[nx][ny]);
+    				visited[nx][ny] = false;
+    			}
+    		}
+    	}
     }
+
+    
 }

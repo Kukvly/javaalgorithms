@@ -44,6 +44,10 @@ public class B_5569 {
 		        dp[i][j][0][0] = (dp[i - 1][j][0][0] + dp[i - 1][j][0][1]) % mod;
 		        dp[i][j][0][1] = dp[i - 1][j][1][0] % mod;
 		        
+//		        System.out.println("dp["+i+"]["+j+"][1][0]: " + dp[i][j][1][0]);
+//		        System.out.println("dp["+i+"]["+j+"][1][1]: " + dp[i][j][1][1]);
+//		        System.out.println("dp["+i+"]["+j+"][0][0]: " + dp[i][j][0][0]);
+//		        System.out.println("dp["+i+"]["+j+"][0][1]: " + dp[i][j][0][1]);
 		        if(i==w && j==h) {
 		        	cnt = (dp[i][j][1][0] + dp[i][j][1][1] + dp[i][j][0][0] + dp[i][j][0][1]) % mod;
 		        }
